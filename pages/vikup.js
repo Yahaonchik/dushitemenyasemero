@@ -1,45 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import Header from '../components/Header'
 import MainFooter from '../components/MainFooter'
 import SEOHead from '../components/SEOHead'
-import Breadcrumbs from '../components/Breadcrumbs'
-import SellModal from '../components/SellModal'
 import { getSEOData } from '../utils/seoConfig'
-import { getServiceData, getLocalBusinessData, getBreadcrumbData } from '../utils/structuredData'
+import { getServiceData, getLocalBusinessData } from '../utils/structuredData'
 
 const Vikup = (props) => {
-  const [isSellModalOpen, setIsSellModalOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-
-  const openSellModal = () => setIsSellModalOpen(true)
-  const closeSellModal = () => setIsSellModalOpen(false)
-
-  useEffect(() => {
-    const update = () => setIsMobile(window.innerWidth < 767)
-    update()
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
-  }, [])
-
-  const truncate = (text, max) => {
-    if (typeof text !== 'string') return ''
-    return text.length > max ? text.slice(0, max - 1).trimEnd() + '…' : text
-  }
-
   const seoData = getSEOData('/vikup')
   const baseUrl = 'https://remstirmash.od.ua'
   const serviceData = getServiceData(
-    'Выкуп б/у стиральны�� машин',
+    'Выкуп б/у стиральных машин',
     'Выкупаем б/у стиральные машины в Одессе дорого. Любые марки и состояние.',
     `${baseUrl}/vikup`
   )
   const localBusinessData = getLocalBusinessData(`${baseUrl}/vikup`)
-  const breadcrumbData = getBreadcrumbData([
-    { name: 'Главная', url: `${baseUrl}/` },
-    { name: 'Выкуп б/у машин', url: `${baseUrl}/vikup` }
-  ])
-  const structuredData = [serviceData, localBusinessData, breadcrumbData]
+  const structuredData = [serviceData, localBusinessData]
 
   return (
     <>
@@ -52,8 +28,12 @@ const Vikup = (props) => {
           structuredData={structuredData}
         />
         <Header />
-        <div className="page1-breadcrumbs-section">
-          <Breadcrumbs style="white-left" />
+        <div className="page1-headertextwashermachine">
+          <img
+            alt="image"
+            src="/group%20385-200h.png"
+            className="page1-image1"
+          />
         </div>
         <div className="page1-main-posle-hedera">
           <div className="page1-container11">
@@ -126,7 +106,7 @@ const Vikup = (props) => {
                 </p>
               </div>
               <img
-                alt="мастер п�� ремонту стиральных машин жмет руку покупателю"
+                alt="мастер по ремонту стиральных машин жмет руку покупателю"
                 src="/vikupsochi-1500w.webp"
                 loading="eager"
                 className="page1-image2"
@@ -134,7 +114,7 @@ const Vikup = (props) => {
             </div>
             <div className="page1-container14">
               <h2 className="page1-text26">
-                <span>Почем�� луч��е не выбрасывать</span>
+                <span>Почему лучше не выбрасывать</span>
                 <br></br>
               </h2>
             </div>
@@ -143,11 +123,11 @@ const Vikup = (props) => {
                 <img
                   alt="image"
                   src="/ICONS/23222.svg"
-                  loading="eager"
+                  loading="lazy"
                   className="page1-image3"
                 />
                 <div className="page1-container17">
-                  <h3 className="page1-text29">{isMobile ? (<><span>Вместо ��усора –</span><br/>польза</>) : 'Вместо мусора – польза'}</h3>
+                  <h3 className="page1-text29">Экономия времени</h3>
                   <svg
                     width="100%"
                     xmlns="http://www.w3.org/2000/svg"
@@ -178,18 +158,20 @@ const Vikup = (props) => {
                       strokeDasharray="11 11"
                     ></path>
                   </svg>
-                  <p className="page1-text30">{isMobile ? truncate('Мы выкупим вашу машинку и используем её на благо другим', 160) : 'Мы выкупим вашу машинку и используем её на благо другим'}</p>
+                  <p className="page1-text30">
+                    Мы сами приезжаем, аккуратно выносим
+                  </p>
                 </div>
               </div>
               <div className="page1-container18">
                 <img
                   alt="image"
                   src="/ICONS/res3.svg"
-                  loading="eager"
+                  loading="lazy"
                   className="page1-image4"
                 />
                 <div className="page1-container19">
-                  <h3 className="page1-text31">{isMobile ? (<><span>Экономия</span><br/>времени</>) : 'Экономия времени'}</h3>
+                  <h3 className="page1-text31">Вместо мусора – польза</h3>
                   <svg
                     width="100%"
                     xmlns="http://www.w3.org/2000/svg"
@@ -220,19 +202,22 @@ const Vikup = (props) => {
                       strokeDasharray="11 11"
                     ></path>
                   </svg>
-                  <p className="page1-text32">{isMobile ? truncate('Мы сами приезжаем, аккуратно выносим', 160) : 'Мы сами приезжаем, аккуратно выносим'}</p>
+                  <p className="page1-text32">
+                    Мы выкупим вашу машинку и используем её на благо другим
+                  </p>
                 </div>
               </div>
               <div className="page1-container20">
                 <img
                   alt="image"
                   src="/ICONS/zamena1.svg"
-                  loading="eager"
+                  loading="lazy"
                   className="page1-image5"
                 />
                 <div className="page1-container21">
                   <h3 className="page1-text33">
-                    {isMobile ? (<><span>Оплат��</span><br/>наличными</>) : (<><span>Оплата наличными</span><br></br></>)}
+                    <span>Оплата наличными</span>
+                    <br></br>
                   </h3>
                   <svg
                     width="100%"
@@ -264,7 +249,9 @@ const Vikup = (props) => {
                       strokeDasharray="11 11"
                     ></path>
                   </svg>
-                  <p className="page1-text36">{isMobile ? truncate('Вы получаете реальную выгоду — деньги сразу на месте', 160) : 'Вы получаете реальную выгоду — деньги сразу на месте'}</p>
+                  <p className="page1-text36">
+                    Вы получаете реальную выгоду — деньги сразу на месте
+                  </p>
                 </div>
               </div>
               <svg
@@ -454,7 +441,7 @@ const Vikup = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <div className="page1-container26" onClick={openSellModal}>
+              <div className="page1-container26">
                 <div className="page1-container27">
                   <span className="page1-text43">Продать</span>
                 </div>
@@ -632,7 +619,7 @@ const Vikup = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <div className="page1-container30" onClick={openSellModal}>
+              <div className="page1-container30">
                 <div className="page1-container31">
                   <span className="page1-text46">Продать</span>
                 </div>
@@ -678,7 +665,7 @@ const Vikup = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <div className="page1-container34" onClick={openSellModal}>
+              <div className="page1-container34">
                 <div className="page1-container35">
                   <span className="page1-text49">Продать</span>
                 </div>
@@ -692,7 +679,6 @@ const Vikup = (props) => {
           </div>
         </article>
         <MainFooter />
-        <SellModal isOpen={isSellModalOpen} onClose={closeSellModal} />
       </div>
       <style jsx>
         {`
@@ -703,12 +689,6 @@ const Vikup = (props) => {
             align-items: center;
             flex-direction: column;
             background-color: #ffffff;
-          }
-          .page1-breadcrumbs-section {
-            width: 100%;
-            max-width: 1300px;
-            padding: 0 var(--dl-layout-space-unit);
-            margin: 0 auto;
           }
           .page1-header {
             gap: 361px;
@@ -778,8 +758,8 @@ const Vikup = (props) => {
             justify-content: center;
           }
           .page1-text10 {
-            fill: #4ec8ed;
-            color: #4ec8ed;
+            fill: #ffd84d;
+            color: #ffd84d;
             font-size: 25px;
             align-self: center;
             font-style: normal;
@@ -1105,7 +1085,7 @@ const Vikup = (props) => {
             align-self: center;
             box-shadow: 5px 5px 10px 0px #d4d4d4;
             align-items: flex-start;
-            margin-bottom: calc(var(--dl-layout-space-twounits) * 1.5);
+            margin-bottom: var(--dl-layout-space-twounits);
             flex-direction: column;
             justify-content: center;
             background-color: #87ceeb;
@@ -1133,7 +1113,7 @@ const Vikup = (props) => {
             font-weight: 400;
             line-height: normal;
             font-stretch: normal;
-            margin-bottom: calc(var(--dl-layout-space-twounits) * 1.5);
+            margin-bottom: var(--dl-layout-space-twounits);
             text-decoration: none;
           }
           .page1-container23 {
@@ -1147,7 +1127,7 @@ const Vikup = (props) => {
             min-width: auto;
             align-items: center;
             border-radius: var(--dl-layout-radius-imageradius);
-            margin-bottom: 67px;
+            margin-bottom: 100px;
             flex-direction: row;
             justify-content: center;
           }
@@ -1204,11 +1184,6 @@ const Vikup = (props) => {
             align-items: flex-start;
             flex-direction: row-reverse;
             justify-content: flex-start;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-          }
-          .page1-container26:hover {
-            transform: scale(1.05);
           }
           .page1-container27 {
             display: flex;
@@ -1332,11 +1307,6 @@ const Vikup = (props) => {
             align-items: flex-start;
             flex-direction: row-reverse;
             justify-content: flex-start;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-          }
-          .page1-container30:hover {
-            transform: scale(1.05);
           }
           .page1-container31 {
             display: flex;
@@ -1404,11 +1374,6 @@ const Vikup = (props) => {
             align-items: flex-start;
             flex-direction: row-reverse;
             justify-content: flex-start;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-          }
-          .page1-container34:hover {
-            transform: scale(1.05);
           }
           .page1-container35 {
             display: flex;
@@ -1475,7 +1440,7 @@ const Vikup = (props) => {
               width: auto;
               height: auto;
               max-width: 300px;
-              margin-bottom: 67px;
+              margin-bottom: 100px;
             }
           }
           @media (max-width: 767px) {
@@ -1489,7 +1454,6 @@ const Vikup = (props) => {
             .page1-container12 {
               height: 100%;
               flex-wrap: wrap;
-              gap: calc(var(--dl-layout-space-oneandhalfunits) - 6px);
             }
             .page1-text13 {
               width: 100%;
@@ -1503,62 +1467,24 @@ const Vikup = (props) => {
               height: 323px;
             }
             .page1-container15 {
-              gap: calc(var(--dl-layout-space-unit) - 6px);
+              gap: var(--dl-layout-space-unit);
               max-width: 290px;
               padding-left: var(--dl-layout-space-oneandhalfunits);
               padding-right: 0px;
               flex-direction: column;
             }
-            .page1-text29 {
-              font-size: 14px;
-              font-weight: 500;
-            }
-            .page1-text30 {
-              font-size: 14px;
-            }
-            .page1-text31 {
-              font-size: 14px;
-              font-weight: 500;
-            }
-            .page1-text32 {
-              font-size: 14px;
-            }
-            .page1-text33 {
-              font-size: 14px;
-              font-weight: 500;
-            }
-            .page1-text36 {
-              font-size: 14px;
-            }
             .page1-text31 {
               font-style: normal;
               font-weight: 500;
             }
-            .page1-text29,
-            .page1-text31,
-            .page1-text33 {
-              max-width: 150px;
-            }
-            .page1-text30,
-            .page1-text32,
-            .page1-text36 {
-              max-width: 160px;
-            }
-          }
-          @media (max-width: 767px) {
-            .page1-breadcrumbs-section {
-              padding: 0 var(--dl-layout-space-oneandhalfunits);
-            }
           }
           @media (max-width: 479px) {
-            .page1-breadcrumbs-section {
-              padding: 0 var(--dl-layout-space-unit);
-            }
             .page1-header {
               height: 84px;
             }
             .page1-headertextwashermachine {
               position: relative;
+              margin-top: var(--dl-layout-space-fiveunits);
             }
             .page1-image1 {
               top: -149px;
@@ -1574,18 +1500,17 @@ const Vikup = (props) => {
             }
             .page1-main-posle-hedera {
               padding-top: 12px;
-              flex-direction: column;
+              flex-direction: column-reverse;
               background-image: none;
             }
             .page1-container12 {
               flex-wrap: wrap;
               align-items: center;
-              flex-direction: column;
+              flex-direction: column-reverse;
               justify-content: center;
             }
             .page1-container13 {
               width: 100%;
-              margin-top: 20px;
             }
             .page1-text10 {
               font-size: 21px;
@@ -1614,22 +1539,13 @@ const Vikup = (props) => {
               font-family: Spectral;
             }
             .page1-container15 {
-              gap: calc(var(--dl-layout-space-unit) - 6px);
+              gap: var(--dl-layout-space-unit);
               width: 280px;
               height: 100%;
               align-items: flex-start;
               padding-top: var(--dl-layout-space-twounits);
               padding-left: var(--dl-layout-space-oneandhalfunits);
               padding-bottom: var(--dl-layout-space-unit);
-            }
-            .page1-container16 {
-              gap: calc(var(--dl-layout-space-twounits) - 6px);
-            }
-            .page1-container18 {
-              gap: calc(var(--dl-layout-space-twounits) - 6px);
-            }
-            .page1-container20 {
-              gap: calc(var(--dl-layout-space-twounits) - 6px);
             }
             .page1-text29 {
               font-size: 1em;
@@ -1646,7 +1562,7 @@ const Vikup = (props) => {
               height: 36px;
             }
             .page1-text36 {
-              max-width: 160px;
+              max-width: 165px;
             }
             .page1-text37 {
               width: auto;

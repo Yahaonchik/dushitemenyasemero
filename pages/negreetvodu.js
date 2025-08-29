@@ -1,27 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 
 import Header from '../components/Header'
 import MainFooter from '../components/MainFooter'
 import SEOHead from '../components/SEOHead'
-import PageNavigation from '../components/PageNavigation'
-import OrderButton from '../components/OrderButton'
-import OrderModal from '../components/OrderModal'
-import Breadcrumbs from '../components/Breadcrumbs'
-import RelatedArticles from '../components/RelatedArticles'
 import { getSEOData } from '../utils/seoConfig'
 import { getProblemPageStructuredData } from '../utils/structuredData'
 
 const Page = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openModal = () => {
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
   const seoData = getSEOData('/negreetvodu')
   const baseUrl = 'https://remstirmash.od.ua'
   const structuredData = getProblemPageStructuredData(
@@ -41,12 +27,14 @@ const Page = (props) => {
           structuredData={structuredData}
         />
         <Header />
-        <div className="page-breadcrumbs-section">
-          <Breadcrumbs style="white-left" />
-        </div>
         <main className="page-main">
           <div className="page-left-main-box">
             <div className="page-headertextwashermachine">
+              <img
+                alt="image"
+                src="/group%20385-200h.png"
+                className="page-image1"
+              />
               <h1 className="page-text10">
                 <span className="page-text11">
                   Стиральная машина не греет воду —
@@ -154,7 +142,7 @@ const Page = (props) => {
                     className="page-vector3"
                   />
                   <a href="#2-1" className="page-link4">
-                    2. Сломан датчик температу��ы (термостат)
+                    2. Сломан датчик температуры (термостат)
                   </a>
                 </li>
                 <li className="page-li5 list-item">
@@ -164,7 +152,7 @@ const Page = (props) => {
                     className="page-vector4"
                   />
                   <a href="#2-2" className="page-link5 ge">
-                    3. Неисп��авен датчик уровня воды (��рессостат)
+                    3. Неисправен датчик уровня воды (��рессостат)
                   </a>
                 </li>
                 <li className="page-li6 list-item">
@@ -184,7 +172,7 @@ const Page = (props) => {
                     className="page-vector5"
                   />
                   <a href="#4" className="page-link6 ge">
-                    5. Сбой или поломка м��дуля управления
+                    5. Сбой или поломка модуля управления
                   </a>
                 </li>
                 <li className="page-li6 list-item">
@@ -194,7 +182,7 @@ const Page = (props) => {
                     className="page-vector5"
                   />
                   <a href="#5" className="page-link6 ge">
-                    6. Невер��о выбран режим стирки
+                    6. Неверно выбран режим стирки
                   </a>
                 </li>
               </ul>
@@ -299,7 +287,7 @@ const Page = (props) => {
               <div className="page-container17">
                 <figure className="page-container18">
                   <img
-                    alt="тэн стиральной ма��ины"
+                    alt="тэн стиральной машины"
                     src="/2/ten.webp"
                     loading="lazy"
                     className="page-image38230522"
@@ -311,14 +299,14 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Чащ�� всего причина кроется в самом нагревательном элем����нте (ТЭНе). Накипь или остатки моющего средства, оседа��щие на ТЭНе, уме��ьшают ег���� теплоотдачу и со временем приводят к перегоранию. Чтобы проверить ТЭН, испо��ьзуют мультиметр: у исправного сопротивление между выводами составляет около 20–40 ОМ. Если измерение показывает обрыв и��и короткое замы��ание, ТЭН однозначно нужно менять. Если же просто накопилась накипь, элемент вынимаю�� и очищают меха��ически (щёткой и��и абразивом) и раствором лимонной кислоты. После чистки проверяют нагрев повт��рно. Иными словам��, при выявлении дефектов ��ЭН заменяют новым. а при лёгких отложениях – очищают от налёта.
+                  Чаще всего причина кроется в самом нагревательном элем����нте (ТЭНе). Накипь или остатки моющего средства, оседа��щие на ТЭНе, уменьшают ег�� теплоотдачу и со временем приводят к перегоранию. Чтобы проверить ТЭН, испо��ьзуют мультиметр: у исправного сопротивление между выводами составляет около 20–40 ОМ. Если измерение показывает обрыв или короткое замы��ание, ТЭН однозначно нужно менять. Если же просто накопилась накипь, элемент вынимают и очищают механически (щёткой и��и абразивом) и раствором лимонной кислоты. После чистки проверяют нагрев повторно. Иными словами, при выявлении дефектов ТЭН заменяют новым. а при лёгких отложениях – очищают от налёта.
                 </p>
               </div>
             </section>
             <section id="2-1" className="page-thirdproblem1-duplicate1">
               <div className="page-container16 zagolovkiskorobkoy">
                 <h3 className="zagolovki2">
-                  2. Сломан датчик температур�� (тер��ост��т)
+                  2. Сломан датчик температур�� (термостат)
                 </h3>
                 <svg
                   width="330"
@@ -353,7 +341,7 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Датчик темп��р��туры (термостат) следит за нагревом воды и ��ри перегреве отключает ТЭН. Если т��рмостат выходит ��з строя, питание на ТЭН не поступает, и вода остаётся холодной. Симптомы неисправности могут проявляться по-разному: ��н��шние пане��и машины перегреваются, цикл стирки длится аномально долго или м��шина выдаёт ошибку по перегреву. Выяснить ��оломку помогает прозвон��а: мультиметром проверяют сопротивление термостата в ��холодном» состоянии (оно должно быть конечн��м, а при н��греве – расти). Если оказывается, что датчик не замыкает цепь пр�� нагреве, его меняют на аналогичный.Исправный термостат просто заменяют – обычно это несложная операция, и после замены машина вновь на��нёт ���реть воду нормальным образом.
+                  Датчик температуры (термостат) следит за нагревом воды и при перегреве отключает ТЭН. Если термостат выходит ��з строя, питание на ТЭН не поступает, и вода остаётся холодной. Симптомы неисправности могут проявляться по-разному: ��н��шние пане��и машины перегреваются, цикл стирки длится аномально долго или машина выдаёт ошибку по перегреву. Выяснить поломку помогает прозвон��а: мультиметром проверяют сопротивление термостата в ��холодном» состоянии (оно должно быть конечн��м, а при н��греве – расти). Если оказывается, что датчик не замыкает цепь при нагреве, его меняют на аналогичный.Исправный термостат просто заменяют – обычно это несложная операция, и после замены машина вновь на��нёт ���реть воду нормальным образом.
                 </p>
               </div>
             </section>
@@ -389,13 +377,13 @@ const Page = (props) => {
                     className="page-image38230522"
                   />
                   <span className="page-text19">
-                    <span>Датчик уро��ня воды</span>
+                    <span>Датчик уровня воды</span>
                     <br></br>
                   </span>
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Прессостат (датчик уровн�� воды) сообщает моду���� управления о наполнении бака, и по сигналам датчика регулируется п��дача воды. Если прессостат забит или сломан, ��ашина может не начать нагревать воду – она не «увидит» необходимый уровень, чтобы включить ТЭН. Для прове��ки открывают переднюю панель и визуально осматривают трубку к прессоста��у (обычно видно под п��нелью или около насоса) на засор��� и перетяжки. Кроме того, прозванивают контакты датчика тестером. В большинстве случаев чистят внутреннюю трубку ��т гр��зи и мелкого мусора (н��пример, нитей или монет). Если же да��чик повреждён (нет реакци�� или неправильные показания), его заменяют новым
+                  Прессостат (датчик уровн�� воды) сообщает моду���� управления о наполнении бака, и по сигналам датчика регулируется подача воды. Если прессостат забит или сломан, машина может не начать нагревать воду – она не «увидит» необходимый уровень, чтобы включить ТЭН. Для проверки открывают переднюю панель и визуально осматривают трубку к прессоста��у (обычно видно под панелью или около насоса) на засор�� и перетяжки. Кроме того, прозванивают контакты датчика тестером. В большинстве случаев чистят внутреннюю трубку ��т грязи и мелкого мусора (например, нитей или монет). Если же датчик повреждён (нет реакции или неправильные показания), его заменяют новым
                 </p>
               </div>
             </section>
@@ -435,7 +423,7 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Часто бывает, чт�� клеммы или провода, идущие к ТЭНу и датчикам, ослабе��ают или окисляются. Например, плохой контакт на клеммах ТЭНа приводит к т��му, что элемент вообще не вклю��ается (или греется местно – проверяйте по почерневшей изоляции и оплавленным клеммам). Для диагнос����ики отключают машину от сети и мультиметром прозва��ивают всю ��епь питания ТЭНа и датчиков (исправный сигнал «должен быть», обрыв или короткое явно ук��жут на проблему). Визуально проверяют целостность проводов и коннекто��ов. При обнаружении плохого контакта или обрыв�� пров��дов провода меняют, а клеммы зачищают и плотно затягивают. После этого вновь ��роверяют нагрев – если проводка и вилка исправны, Т��Н снова н��чнёт греться.
+                  Часто бывает, что клеммы или провода, идущие к ТЭНу и датчикам, ослабевают или окисляются. Например, плохой контакт на клеммах ТЭНа приводит к тому, что элемент вообще не включается (или греется местно – проверяйте по почерневшей изоляции и оплавленным клеммам). Для диагнос��ики отключают машину от сети и мультиметром прозва��ивают всю ��епь питания ТЭНа и датчиков (исправный сигнал «должен быть», обрыв или короткое явно ук��жут на проблему). Визуально проверяют целостность проводов и коннекторов. При обнаружении плохого контакта или обрыв�� проводов провода меняют, а клеммы зачищают и плотно затягивают. После этого вновь проверяют нагрев – если проводка и вилка исправны, Т��Н снова н��чнёт греться.
                 </p>
               </div>
             </section>
@@ -477,7 +465,7 @@ const Page = (props) => {
                 </figure>
                 <p className="page-text46 vicetext">
                   {' '}
-                  Электронный блок управления (ЭБУ) — это «мо��г» машины. Если в нём выходят из строя силовые реле, повреждается плата или программируется ош��бка, то команда на нагрев мож��т просто не подаваться. Распознать такую неисправность самостоятельно сложно: чаще всего на дисплее п��является соответствующий код, либо машина не реагирует на любые настройки. Проверку и ремонт модуля обыч��о доверяют специалисту, однако ясно одно: при любой проблеме с платой подачу напряжени�� на ТЭН прекращают, и новая плата или ремонт старой полностью ре��ают проблему. Самостоятельно можно т��лько убедиться, что напряжение в розетке подаётся и модули питания целы; для сложного ремонта платы лучше пригласить мастера.
+                  Электронный блок управления (ЭБУ) — это «мо��г» машины. Если в нём выходят из строя силовые реле, повреждается плата или программируется ошибка, то команда на нагрев мож��т просто не подаваться. Распознать такую неисправность самостоятельно сложно: чаще всего на дисплее п��является соответствующий код, либо машина не реагирует на любые настройки. Проверку и ремонт модуля обычно доверяют специалисту, однако ясно одно: при любой проблеме с платой подачу напряжения на ТЭН прекращают, и новая плата или ремонт старой полностью ре��ают проблему. Самостоятельно можно только убедиться, что напряжение в розетке подаётся и модули питания целы; для сложного ремонта платы лучше пригласить мастера.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -512,7 +500,7 @@ const Page = (props) => {
               <div className="page-container17">
                 <p className="page-text49 vicetext">
                   {' '}
-                  Иногда причиной «холодн��й» стирки оказывается банальная оши��ка в настройках. Если выставлен режим быстрой или энергосберегающей стирки без подогрева (или выбран ми��имальный температурный режим), машина просто не включит ТЭН. Например, регулятор температуры на панели должен соответствовать выбранной программ��. Чтобы проверить, достаточно заново установить режим с высоким подогревом (40–60 °C). После корректировки настроек проблема исчезнет – функция нагрева будет работать как положено. Такой простой совет иногда спасает до обращ��ния в сервис.
+                  Иногда причиной «холодной» стирки оказывается банальная ошибка в настройках. Если выставлен режим быстрой или энергосберегающей стирки без подогрева (или выбран минимальный температурный режим), машина просто не включит ТЭН. Например, регулятор температуры на панели должен соответствовать выбранной программе. Чтобы проверить, достаточно заново установить режим с высоким подогревом (40–60 °C). После корректировки настроек проблема исчезнет – функция нагрева будет работать как положено. Такой простой совет иногда спасает до обращ��ния в сервис.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -657,8 +645,8 @@ const Page = (props) => {
               <h2 className="page-text50">Когда вызывать мастера?</h2>
               <p className="page-text51">
                 <span className="page-text52">
-                  Если вы выполн��ли все рекомендации, но проблема осталась —
-                  обратитесь �� сервис
+                  Если вы выполнили все рекомендации, но проблема осталась —
+                  обратитесь в сервис
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -693,7 +681,7 @@ const Page = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <strong className="page-text58">Ра��о��аем без выходных</strong>
+              <strong className="page-text58">Работаем без выходных</strong>
               <div className="page-container28">
                 <div className="page-container29">
                   <div className="page-container30">
@@ -713,19 +701,55 @@ const Page = (props) => {
                     <strong className="page-text60">+38 (048) 123-35-21</strong>
                   </div>
                 </div>
-                <OrderButton onClick={openModal} text="Заказать мастера" />
+                <button type="button" className="page-button button">
+                  Перезвоните мне
+                </button>
               </div>
             </section>
-            <PageNavigation
-              prevPage={{
-                href: '/neslivaetvodu',
-                title: 'Стиральн��я машина н�� сливает воду'
-              }}
-              nextPage={{
-                href: '/protekaet',
-                title: 'Стиральная маши��а протекает'
-              }}
-            />
+            <div className="page-container32">
+              <div className="page-container33">
+                <div className="page-container34">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon54"
+                  >
+                    <path
+                      d="M19 468L471 19q19-19 45.5-19T562 19l92 91q19 19 19 45.5T654 201L468 385h492q27 0 45.5 18.5T1024 449v128q0 26-18.5 45T960 641H467l187 185q19 18 19 45t-19 45l-92 91q-19 19-45.5 19t-45.5-19L19 559Q0 540 0 513.5T19 468"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container35">
+                  <h4 className="page-text61">Предидуща��</h4>
+                  <span className="page-text62">
+                    Стиральная машина не крутит барабан
+                  </span>
+                </div>
+              </div>
+              <div className="page-container36">
+                <div className="page-container37">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon56"
+                  >
+                    <path
+                      d="m1005 558l-452 448q-19 19-45.5 19t-45.5-19l-92-91q-19-18-19-45t19-45l186-184H64q-27 0-45.5-19T0 577V449q0-27 18.5-45.5T64 385h493L370 200q-19-19-19-45.5t19-45.5l92-91q19-18 45.5-18T553 18l452 449q19 19 19 45.5t-19 45.5"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container38">
+                  <h4 className="page-text63">Следующая</h4>
+                  <span className="page-text64">
+                    Стиральная машина не нагревает воду
+                  </span>
+                </div>
+              </div>
+            </div>
             <svg
               width="330"
               xmlns="http://www.w3.org/2000/svg"
@@ -743,7 +767,59 @@ const Page = (props) => {
                 strokeDasharray="11 11"
               ></path>
             </svg>
-            <RelatedArticles />
+            <div className="page-container39">
+              <h4 className="page-text65">
+                <span>Другие статьи</span>
+                <br></br>
+              </h4>
+            </div>
+            <div className="page-container40">
+              <div className="page-container41">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823145-200h.png"
+                  loading="lazy"
+                  className="page-image38230321"
+                />
+                <span className="page-text68">
+                  Как избавить��я от жирных пятен н���� одежде в домашних условиях?
+                </span>
+              </div>
+              <div className="page-container42">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823146-200h.png"
+                  loading="lazy"
+                  className="page-image38230322"
+                />
+                <span className="page-text69">
+                  Как уд��лить пятна крови с одежды без следов?
+                </span>
+              </div>
+              <div className="page-container43">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823147-200h.png"
+                  loading="lazy"
+                  className="page-image38230323"
+                />
+                <span className="page-text70">
+                  Как самос��оятельно удалить жвачку с одежды?
+                </span>
+              </div>
+              <div className="page-container44">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823144-200h.png"
+                  loading="lazy"
+                  className="page-image38230324"
+                />
+                <span className="page-text71">
+                  Как правильно стирать пуховик в автоматической стиральной
+                  машине?
+                </span>
+              </div>
+            </div>
           </div>
           <div className="page-dops-info">
             <section className="page-frame1299">
@@ -758,7 +834,7 @@ const Page = (props) => {
               <div className="page-frame12982">
                 <span className="page-text74">
                   Как продлить жизнь машине на 3–5 лет — простые привычки,
-                  которые сэкономя�� деньги
+                  которые сэкономят деньги
                 </span>
                 <div className="page-container46"></div>
               </div>
@@ -771,7 +847,7 @@ const Page = (props) => {
               </div>
               <div className="page-frame12984">
                 <span className="page-text76">
-                  Как ��экономить электричество и воду — реальные настройки и
+                  Как сэкономить электричество и воду — реальные настройки и
                   лайфхаки
                 </span>
                 <div className="page-container48"></div>
@@ -784,7 +860,7 @@ const Page = (props) => {
               </div>
               <div className="page-frame12986">
                 <span className="page-text78">
-                  Мифы о стиралка��: что правда, а что — вымысел?
+                  Мифы о стиралках: что правда, а что — вымысел?
                 </span>
                 <div className="page-container50"></div>
               </div>
@@ -792,7 +868,6 @@ const Page = (props) => {
           </div>
         </main>
         <MainFooter />
-        <OrderModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
       <style jsx global>{`
         html { scroll-behavior: smooth; }
@@ -806,12 +881,6 @@ const Page = (props) => {
             align-items: center;
             flex-direction: column;
             background-color: #ffffff;
-          }
-          .page-breadcrumbs-section {
-            width: 100%;
-            max-width: 1300px;
-            padding: 0 var(--dl-layout-space-unit);
-            margin: 0 auto;
           }
           .page-header {
             gap: 361px;
@@ -841,7 +910,7 @@ const Page = (props) => {
             justify-content: center;
           }
           .page-left-main-box {
-            gap: 0;
+            gap: var(--dl-layout-space-oneandhalfunits);
             width: 100%;
             height: 100%;
             display: flex;
@@ -852,23 +921,11 @@ const Page = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-
-          .page-left-main-box > *:not(:first-child) {
-            margin-top: var(--dl-layout-space-oneandhalfunits);
-          }
-
-          .page-container11 {
-            margin-top: 0px !important;
-          }
           .page-headertextwashermachine {
             width: 100%;
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            margin-bottom: 45px;
-          }
-          @media (max-width: 487px) {
-            .page-headertextwashermachine { margin-top: 85px; }
           }
           .page-image1 {
             width: 50px;
@@ -909,7 +966,7 @@ const Page = (props) => {
             max-width: 586px;
             min-width: 290px;
             box-shadow: 0px 0px 20px 3px #d4d4d4;
-            margin-top: 8px;
+            margin-top: var(--dl-layout-space-unit);
             align-items: flex-start;
             padding-top: var(--dl-layout-space-unit);
             border-radius: var(--dl-layout-radius-imageradius);
@@ -2335,15 +2392,11 @@ const Page = (props) => {
             }
           }
           @media (max-width: 767px) {
-            .page-breadcrumbs-section {
-              padding: 0 var(--dl-layout-space-oneandhalfunits);
-            }
             .page-left-main-box {
               align-items: center;
             }
             .page-text10 {
               text-align: center;
-              margin-bottom: 29px;
             }
             .page-container11 {
               max-width: 350px;
@@ -2371,9 +2424,6 @@ const Page = (props) => {
             }
           }
           @media (max-width: 479px) {
-            .page-breadcrumbs-section {
-              padding: 0 var(--dl-layout-space-unit);
-            }
             .page-header {
               height: 84px;
             }
@@ -2385,7 +2435,7 @@ const Page = (props) => {
             }
             .page-headertextwashermachine {
               position: relative;
-              margin-top: 53px;
+              margin-top: var(--dl-layout-space-fiveunits);
             }
             .page-image1 {
               top: -149px;
@@ -2477,57 +2527,45 @@ const Page = (props) => {
             }
             .page-container18 {
               gap: var(--dl-layout-space-halfunit);
-              width: 280px;
-              max-width: 280px;
-              min-width: 280px;
-              height: auto;
-              min-height: 0;
-              margin: 12px auto 16px;
-              float: none;
+              height: 100%;
+              max-width: var(--dl-layout-size-xxlarge);
+              min-width: 100%;
+              min-height: 100%;
+              margin-bottom: 14px;
             }
             .page-image38230522 {
               width: 100%;
-              height: 170px;
-              object-fit: cover;
-              min-width: 0;
-              min-height: 0;
+              min-width: 50%;
+              min-height: 50px;
             }
             .page-container21 {
               gap: var(--dl-layout-space-halfunit);
-              width: 280px;
-              max-width: 280px;
-              min-width: 280px;
-              height: auto;
-              min-height: 0;
-              margin: 12px auto 16px;
-              float: none;
+              height: 100%;
+              max-width: var(--dl-layout-size-xxlarge);
+              min-width: 100%;
+              min-height: 100%;
+              margin-bottom: 14px;
             }
             .page-image38230523 {
               width: 100%;
-              height: 170px;
-              object-fit: cover;
-              min-width: 0;
-              min-height: 0;
+              min-width: 50%;
+              min-height: 50px;
             }
             .page-text40 {
               font-size: 13px;
             }
             .page-container24 {
               gap: var(--dl-layout-space-halfunit);
-              width: 280px;
-              max-width: 280px;
-              min-width: 280px;
-              height: auto;
-              min-height: 0;
-              margin: 12px auto 16px;
-              float: none;
+              height: 100%;
+              max-width: 100%;
+              min-width: 100%;
+              min-height: 100%;
+              margin-bottom: 14px;
             }
             .page-image38230524 {
               width: 100%;
-              height: 170px;
-              object-fit: cover;
-              min-width: 0;
-              min-height: 0;
+              min-width: 50%;
+              min-height: 50px;
             }
             .page-text45 {
               font-size: 13px;
@@ -2537,20 +2575,16 @@ const Page = (props) => {
             }
             .page-container27 {
               gap: var(--dl-layout-space-halfunit);
-              width: 280px;
-              max-width: 280px;
-              min-width: 280px;
-              height: auto;
-              min-height: 0;
-              margin: 12px auto 16px;
-              float: none;
+              height: 100%;
+              max-width: 100%;
+              min-width: 100%;
+              min-height: 100%;
+              margin-bottom: 14px;
             }
             .page-image38230525 {
               width: 100%;
-              height: 170px;
-              object-fit: cover;
-              min-width: 0;
-              min-height: 0;
+              min-width: 50%;
+              min-height: 50px;
             }
             .page-text48 {
               font-size: 13px;

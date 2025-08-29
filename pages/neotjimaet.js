@@ -1,32 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 
 import Header from '../components/Header'
 import MainFooter from '../components/MainFooter'
 import SEOHead from '../components/SEOHead'
-import PageNavigation from '../components/PageNavigation'
-import OrderButton from '../components/OrderButton'
-import OrderModal from '../components/OrderModal'
-import Breadcrumbs from '../components/Breadcrumbs'
-import RelatedArticles from '../components/RelatedArticles'
 import { getSEOData } from '../utils/seoConfig'
 import { getProblemPageStructuredData } from '../utils/structuredData'
 
 const Page = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openModal = () => {
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
   const seoData = getSEOData('/neotjimaet')
   const baseUrl = 'https://remstirmash.od.ua'
   const structuredData = getProblemPageStructuredData(
     'Ремонт стиральной машины которая не отжимает',
-    'Профессиональный рем��нт стиральных машин которые не отжи��ают белье в Одессе. Ремонт двигателя, замена щеток.',
+    'Профессиональный ремонт стиральных машин которые не отжимают белье в Одессе. Ремонт двигателя, замена щеток.',
     `${baseUrl}/neotjimaet`
   )
 
@@ -41,12 +27,14 @@ const Page = (props) => {
           structuredData={structuredData}
         />
         <Header />
-        <div className="page-breadcrumbs-section">
-          <Breadcrumbs style="white-left" />
-        </div>
         <main className="page-main">
           <div className="page-left-main-box">
             <div className="page-headertextwashermachine">
+              <img
+                alt="image"
+                src="/group%20385-200h.png"
+                className="page-image1"
+              />
               <h1 className="page-text10">
                 <span className="page-text11">
                   Стиральная машина не отжимает —
@@ -154,7 +142,7 @@ const Page = (props) => {
                     className="page-vector2"
                   />
                   <a href="#2" className="page-link3 ge">
-                    1. Не��справен сливной насос (помпа)
+                    1. Неисправен сливной насос (помпа)
                   </a>
                 </li>
                 <li className="page-li4 list-item ge">
@@ -164,7 +152,7 @@ const Page = (props) => {
                     className="page-vector3"
                   />
                   <a href="#3" className="page-link4">
-                    2. Неисправен прессостат (датчик ур��в��я воды)
+                    2. Неисправен прессостат (датчик уровня воды)
                   </a>
                 </li>
                 <li className="page-li5 list-item">
@@ -184,7 +172,7 @@ const Page = (props) => {
                     className="page-vector5"
                   />
                   <a href="#5" className="page-link6 ge">
-                    4. Растя��утый или порв��вшийся приводной ремень.
+                    4. Растянутый или порвавшийся приводной ремень.
                   </a>
                 </li>
                 <li className="page-li6 list-item">
@@ -303,44 +291,44 @@ const Page = (props) => {
               <div className="page-container13">
                 <figure className="page-container14">
                   <img
-                    alt="мокрая руба����ка"
+                    alt="мокрая рубашка"
                     src="/7/1s.webp"
                     loading="eager"
                     className="page-image38230521"
                   />
                   <span className="page-text19">
-                    <span>мокрое белье</span>
+                    <span>Мокрое белье после стирки</span>
                     <br></br>
                   </span>
                 </figure>
                 <div className="vicetext">
                   <p>
                     <strong>1. Для начала проверьте сливной фильтр.</strong><br />
-                    Он удерживает мелкие предметы — монеты, пуговицы, ворсинки, — и со временем забивается. Когда фильтр перекрыт, вода не проходит в насос, и программа отжима не запускается. Обычно фильтр находится внизу на передней панели: откройте лючок, выкрутите пробку и удалите скопившийся мусор. После очистки попробуйте снова включить сти��ку.
+                    Он удерживает мелкие предметы — монеты, пуговицы, ворсинки, — и со временем забивается. Когда фильтр перекрыт, вода не проходит в насос, и программа отжима не запускается. Обычно фильтр находится внизу на передней панели: откройте лючок, выкрутите пробку и удалите скопившийся мусор. После очистки попробуйте снова включить стирку.
                   </p>
 
                   <p>
-                    <strong>2. Если фильтр в порядке, ��брати��е внимание на сливной шланг.</strong><br />
-                    Он не должен быть перегнут или зажат мебелью. Изгибы мешают свободному стоку воды, и машина также отказывается переходить к отжиму. Осмотрите шланг ��о всей длине, расправьте петли и проверьте соединение с канализацией или сифоном. При необходимости очистите зас��р в сифоне или замените шланг.
+                    <strong>2. Если фильтр в порядке, обратите внимание на сливной шланг.</strong><br />
+                    Он не должен быть перегнут или зажат мебелью. Изгибы мешают свободному стоку воды, и машина также отказывается переходить к отжиму. Осмотрите шланг по всей длине, расправьте петли и проверьте соединение с канализацией или сифоном. При необходимости очистите засор в сифоне или замените шланг.
                   </p>
 
                   <p>
-                    <strong>3. Ещё одна распростран��нная причина — неверные настройки.</strong><br />
-                    Убедитесь, что вы не выбрали режим без отжима, например ��Полоскание без отжима» или «Деликатная стирка». В некоторых программах скорость вращения барабана снижена или отжим отключ��н полностью, чтобы не повредить ткани. Если это так, просто перезапустите стирку с нуж��ым режимом.
+                    <strong>3. Ещё одна распространённая причина — неверные настройки.</strong><br />
+                    Убедитесь, что вы не выбрали режим без отжима, например «Полоскание без отжима» или «Деликатная стирка». В некоторых программах скорость вращения барабана снижена или отжим отключён полностью, чтобы не повредить ткани. Если это так, просто перезапустите стирку с нужным режимом.
                   </p>
 
                   <p>
-                    <strong>4. Иногда пробле��а связана с загрузкой ��елья.</strong><br />
-                    Если вещ���� сбил��сь в комок, барабан не может сбалансироваться. Встроенный датчик дисбаланса блокирует разгон, чтобы машина не «скакала» по комнате. Перетряхните бельё в барабан��, добавьте несколько мелких вещей или, наоборот, разделите большую партию на две стирки. Так бельё ра��пределится равномерно, и отжим пройдё�� без проблем.
+                    <strong>4. Иногда пробле��а связана с загрузкой белья.</strong><br />
+                    Если вещ�� сбились в комок, барабан не может сбалансироваться. Встроенный датчик дисбаланса блокирует разгон, чтобы машина не «скакала» по комнате. Перетряхните бельё в барабане, добавьте несколько мелких вещей или, наоборот, разделите большую партию на две стирки. Так бельё распределится равномерно, и отжим пройдёт без проблем.
                   </p>
 
                   <p>
-                    <strong>5. Если все эти меры не ��омогли, попробуйте перезагрузить электронику.</strong><br />
+                    <strong>5. Если все эти меры не помогли, попробуйте перезагрузить электронику.</strong><br />
                     Выключите стиральную машину из розетки на 10–15 минут, затем включите снова и запустите короткий цикл. Иногда этого достаточно, чтобы сбросить сбой программы.
                   </p>
 
                   <p>
-                    <strong>6. Но если после всех проверок ��тжим всё равно не запускается, скорее ��сего, речь и��ёт о неисправности насоса, датчиков или управляющего модуля.</strong>
+                    <strong>6. Но если после всех проверок отжим всё равно не запускается, скорее всего, речь идёт о неисправности насоса, датчиков или управляющего модуля.</strong>
                   </p>
                 </div>
               </div>
@@ -354,7 +342,7 @@ const Page = (props) => {
             <section id="2" className="page-thirdproblem1">
               <div className="page-container16 zagolovkiskorobkoy">
                 <h3 className="zagolovki2">
-                  1. Неисправен сли��н��й насос (п��мпа)
+                  1. Неисправен сливной насос (п��мпа)
                 </h3>
                 <svg
                   width="330"
@@ -389,13 +377,13 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  ��сли пом��а сгорела или в ней слома��а крыльчатка, машина не сможет слить воду и п��реход к отж��му невозможен. При���наки: вода остаётся в баке, машинка гудит во время слива или совсем молчит, и часто появляется ошибка слива на дисплее. Самостоятельный ремонт насоса обычно невозможен.
+                  Если помпа сгорела или в ней слома��а крыльчатка, машина не сможет слить воду и переход к отж��му невозможен. При���наки: вода остаётся в баке, машинка гудит во время слива или совсем молчит, и часто появляется ошибка слива на дисплее. Самостоятельный ремонт насоса обычно невозможен.
                 </p>
               </div>
             </section>
             <section id="3" className="page-thirdproblem2">
               <div className="page-container19 zagolovkiskorobkoy">
-                <h3 className="zagolovki2">2. Неисправен п��ессостат (датчик уровня воды)</h3>
+                <h3 className="zagolovki2">2. Неисправен прессостат (датчик уровня воды)</h3>
                 <svg
                   width="330"
                   xmlns="http://www.w3.org/2000/svg"
@@ -429,7 +417,7 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Если ��атчик неправильно определяет уровень воды, блок управлен��я не срабатывает нормально. При этом машинка может «зависать» перед отжимом – она не сливает воду полно��тью и аварийно останавливается. Признаки: после завершения стирки в баке ост��ётся вода, могут появляться ошибки уровня воды. Решается замена прессостата.
+                  Если датчик неправильно определяет уровень воды, блок управления не срабатывает нормально. При этом машинка может «зависать» перед отжимом – она не сливает воду полностью и аварийно останавливается. Признаки: после завершения стирки в баке остаётся вода, могут появляться ошибки уровня воды. Решается замена прессостата.
                 </p>
               </div>
             </section>
@@ -468,7 +456,7 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Изноше��ные щетки двигателя. В большинстве машин двигатель имеет у��ольные ��ётки, которые со временем стираются. Из-за плохого ��онтакта мотор не набирает обороты и искрит. Вы заметите искр��ни�� вну��ри корпуса и ощущение, что барабан «лениво» пытается крутиться, но не раскручивается. Если вовремя не заменить щетки, двигатель может вообще перестать вращать барабан.
+                  Изноше��ные щетки двигателя. В большинстве машин двигатель имеет угольные ��ётки, которые со временем стираются. Из-за плохого контакта мотор не набирает обороты и искрит. Вы заметите искр��ние внутри корпуса и ощущение, что барабан «лениво» пытается крутиться, но не раскручивается. Если вовремя не заменить щетки, двигатель может вообще перестать вращать барабан.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -480,7 +468,7 @@ const Page = (props) => {
             <section id="5" className="page-fiveproblem2">
               <div className="page-container25 zagolovkiskorobkoy">
                 <h3 className="zagolovki2">
-                  4. Растянутый или пор���авшийся приводной ремень
+                  4. Растянутый или пор��авшийся приводной ремень
                 </h3>
                 <svg
                   width="330"
@@ -508,11 +496,11 @@ const Page = (props) => {
                     loading="lazy"
                     className="page-image38230525"
                   />
-                  <span className="page-text48">Соскочивший ре��ень</span>
+                  <span className="page-text48">Соскочивший ремень</span>
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Приводной ремень пе��едаёт вращение от двигателя к барабану. При о���лаблении или разрыве ремня ��арабан не сможет достичь нужных оборотов �� бельё останется сырым. Обычно при этом двигатель пытается работать (маши���ка гудит), но барабан ост��ётся вялым или не вращается вовсе. Если ремень с��етел, его можно перекинуть на ме��то (д��я этого снимают заднюю стенку и ослабляют крепление мотора). Если же ремень изношен, потребуется его замена. Причиной разрыва мо��ет быть старен��е ремня или износ подшипников (при сильных люфтах на валу ремень перекидывается и рвётся.
+                  Приводной ремень передаёт вращение от двигателя к барабану. При о��лаблении или разрыве ремня ��арабан не сможет достичь нужных оборотов �� бельё останется сырым. Обычно при этом двигатель пытается работать (маши���ка гудит), но барабан ост��ётся вялым или не вращается вовсе. Если ремень слетел, его можно перекинуть на место (д��я этого снимают заднюю стенку и ослабляют крепление мотора). Если же ремень изношен, потребуется его замена. Причиной разрыва может быть старен��е ремня или износ подшипников (при сильных люфтах на валу ремень перекидывается и рвётся.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -556,7 +544,7 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Полный отказ мотора (обрыв обмоток или короткое замыкание) – серьёзная проблема. Призн��к – при отжиме машина «зависает», двигатель гудит или совсем тих, �� барабан не крутитс����. Могут выбиваться пробки электрическ��й цепи. Ремонт двигателя – трудоёмкая операция, обычно его заменяют.
+                  Полный отказ мотора (обрыв обмоток или короткое замыкание) – серьёзная проблема. Призн��к – при отжиме машина «зависает», двигатель гудит или совсем тих, а барабан не крутитс����. Могут выбиваться пробки электрическ��й цепи. Ремонт двигателя – трудоёмкая операция, обычно его заменяют.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -591,7 +579,7 @@ const Page = (props) => {
               <div className="page-container26">
                 <figure className="page-container27">
                   <img
-                    alt="Датчик оборото��"
+                    alt="Датчик оборотов"
                     src="/7/6s.webp"
                     loading="lazy"
                     className="page-image38230525"
@@ -600,7 +588,7 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Если датчик оборотов выдаёт неверные пок��зани��, контроллер перестаёт доверять д��игателю – стиральная машина может просто не давать команду на отжим. Это происходит без явных механически�� шумов, но при этом барабан либо вращается очень ��едленно, либо вообще не двигается. Решается замено�� датчика.
+                  Если датчик оборотов выдаёт неверные показания, контроллер перестаёт доверять двигателю – стиральная машина может просто не давать команду на отжим. Это происходит без явных механических шумов, но при этом барабан либо вращается очень ��едленно, либо вообще не двигается. Решается заменой датчика.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -742,7 +730,7 @@ const Page = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <h2 className="page-text50">Когда вызывать масте��а?</h2>
+              <h2 className="page-text50">Когда вызывать мастера?</h2>
               <p className="page-text51">
                 <span className="page-text52">
                   Если вы выполнили все рекомендации, но проблема осталась —
@@ -760,7 +748,7 @@ const Page = (props) => {
                 <span className="page-text57">
                   {' '}
                   Наши специалисты быстро прие��ут к вам �� желаемое вами время в
-                  любой район Одессы и выполнят качественную диагн����тику и
+                  любой район Одессы и выполнят качественную диагно��тику и
                   ремонт.
                 </span>
               </p>
@@ -801,19 +789,55 @@ const Page = (props) => {
                     <strong className="page-text60">+38 (048) 123-35-21</strong>
                   </div>
                 </div>
-                <OrderButton onClick={openModal} text="Заказать мастера" />
+                <button type="button" className="page-button button">
+                  Перезвоните мне
+                </button>
               </div>
             </section>
-            <PageNavigation
-              prevPage={{
-                href: '/zavisaetnaprogramme',
-                title: 'Стиральная машина зависает на программе'
-              }}
-              nextPage={{
-                href: '/nenabiraetvodu',
-                title: 'Стиральная машина не набирает воду'
-              }}
-            />
+            <div className="page-container32">
+              <div className="page-container33">
+                <div className="page-container34">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon54"
+                  >
+                    <path
+                      d="M19 468L471 19q19-19 45.5-19T562 19l92 91q19 19 19 45.5T654 201L468 385h492q27 0 45.5 18.5T1024 449v128q0 26-18.5 45T960 641H467l187 185q19 18 19 45t-19 45l-92 91q-19 19-45.5 19t-45.5-19L19 559Q0 540 0 513.5T19 468"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container35">
+                  <h4 className="page-text61">Предидущая</h4>
+                  <span className="page-text62">
+                    Стиральная машина не крутит барабан
+                  </span>
+                </div>
+              </div>
+              <div className="page-container36">
+                <div className="page-container37">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon56"
+                  >
+                    <path
+                      d="m1005 558l-452 448q-19 19-45.5 19t-45.5-19l-92-91q-19-18-19-45t19-45l186-184H64q-27 0-45.5-19T0 577V449q0-27 18.5-45.5T64 385h493L370 200q-19-19-19-45.5t19-45.5l92-91q19-18 45.5-18T553 18l452 449q19 19 19 45.5t-19 45.5"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container38">
+                  <h4 className="page-text63">Следующая</h4>
+                  <span className="page-text64">
+                    Стиральная машин�� не нагревает воду
+                  </span>
+                </div>
+              </div>
+            </div>
             <svg
               width="330"
               xmlns="http://www.w3.org/2000/svg"
@@ -831,7 +855,59 @@ const Page = (props) => {
                 strokeDasharray="11 11"
               ></path>
             </svg>
-            <RelatedArticles />
+            <div className="page-container39">
+              <h4 className="page-text65">
+                <span>Другие статьи</span>
+                <br></br>
+              </h4>
+            </div>
+            <div className="page-container40">
+              <div className="page-container41">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823145-200h.png"
+                  loading="lazy"
+                  className="page-image38230321"
+                />
+                <span className="page-text68">
+                  Как избавиться от жирных пятен н�� одежде в до��ашних условиях?
+                </span>
+              </div>
+              <div className="page-container42">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823146-200h.png"
+                  loading="lazy"
+                  className="page-image38230322"
+                />
+                <span className="page-text69">
+                  Как уд��лить пятна крови с одежды без следов?
+                </span>
+              </div>
+              <div className="page-container43">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823147-200h.png"
+                  loading="lazy"
+                  className="page-image38230323"
+                />
+                <span className="page-text70">
+                  Как самостоятельно удалить жвачку с одежды?
+                </span>
+              </div>
+              <div className="page-container44">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823144-200h.png"
+                  loading="lazy"
+                  className="page-image38230324"
+                />
+                <span className="page-text71">
+                  Как правильно стирать пуховик в автоматической стиральной
+                  машине?
+                </span>
+              </div>
+            </div>
           </div>
           <div className="page-dops-info">
             <section className="page-frame1299">
@@ -845,21 +921,21 @@ const Page = (props) => {
               </div>
               <div className="page-frame12982">
                 <span className="page-text74">
-                  Как продлить жизнь ��ашине на 3–5 лет — простые прив��чки,
+                  Как продлить жизнь ��ашине на 3–5 лет — простые привычки,
                   которые сэ��он��мят деньги
                 </span>
                 <div className="page-container46"></div>
               </div>
               <div className="page-frame12983">
                 <span className="page-text75">
-                  Почему ст��ралка воняет — 7 быстрых причин и что сделать прямо
+                  Почему стиралка воняет — 7 быстрых причин и что сделать прямо
                   сейчас
                 </span>
                 <div className="page-container47"></div>
               </div>
               <div className="page-frame12984">
                 <span className="page-text76">
-                  Как сэкономи��ь электричество и воду — реальные наст��ойки и
+                  Как сэкономи��ь электричество и воду — реальные настройки и
                   лайфхаки
                 </span>
                 <div className="page-container48"></div>
@@ -880,7 +956,6 @@ const Page = (props) => {
           </div>
         </main>
         <MainFooter />
-        <OrderModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
       <style jsx>
         {`
@@ -891,12 +966,6 @@ const Page = (props) => {
             align-items: center;
             flex-direction: column;
             background-color: #ffffff;
-          }
-          .page-breadcrumbs-section {
-            width: 100%;
-            max-width: 1300px;
-            padding: 0 var(--dl-layout-space-unit);
-            margin: 0 auto;
           }
           .page-header {
             gap: 361px;
@@ -926,7 +995,7 @@ const Page = (props) => {
             justify-content: center;
           }
           .page-left-main-box {
-            gap: 0;
+            gap: var(--dl-layout-space-oneandhalfunits);
             width: 100%;
             height: 100%;
             display: flex;
@@ -937,20 +1006,11 @@ const Page = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-
-          .page-left-main-box > *:not(:first-child) {
-            margin-top: var(--dl-layout-space-oneandhalfunits);
-          }
-
-          .page-container11 {
-            margin-top: 0px !important;
-          }
           .page-headertextwashermachine {
             width: 100%;
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            margin-bottom: 45px;
           }
           .page-image1 {
             width: 50px;
@@ -991,7 +1051,7 @@ const Page = (props) => {
             max-width: 586px;
             min-width: 290px;
             box-shadow: 0px 0px 20px 3px #d4d4d4;
-            margin-top: 8px;
+            margin-top: var(--dl-layout-space-unit);
             align-items: flex-start;
             padding-top: var(--dl-layout-space-unit);
             border-radius: var(--dl-layout-radius-imageradius);
@@ -1232,7 +1292,6 @@ const Page = (props) => {
             margin-left: var(--dl-layout-space-oneandhalfunits);
             flex-direction: column;
             justify-content: center;
-            background-color: rgba(69, 197, 237, 0.1);
           }
           .page-image38230521 {
             float: right;
@@ -2387,9 +2446,6 @@ const Page = (props) => {
             }
           }
           @media (max-width: 767px) {
-            .page-breadcrumbs-section {
-              padding: 0 var(--dl-layout-space-oneandhalfunits);
-            }
             .page-left-main-box {
               align-items: center;
             }
@@ -2422,9 +2478,6 @@ const Page = (props) => {
             }
           }
           @media (max-width: 479px) {
-            .page-breadcrumbs-section {
-              padding: 0 var(--dl-layout-space-unit);
-            }
             .page-header {
               height: 84px;
             }
@@ -2436,7 +2489,7 @@ const Page = (props) => {
             }
             .page-headertextwashermachine {
               position: relative;
-              margin-top: 53px;
+              margin-top: var(--dl-layout-space-fiveunits);
             }
             .page-image1 {
               top: -149px;
@@ -2526,8 +2579,19 @@ const Page = (props) => {
               font-size: 18px;
               text-align: center;
             }
-            .page-container18 { gap: var(--dl-layout-space-halfunit); width: 280px; max-width: 280px; min-width: 280px; height: auto; min-height: 0; margin: 12px auto 16px; float: none; }
-            .page-image38230522 { width: 100%; height: 170px; object-fit: cover; min-width: 0; min-height: 0; }
+            .page-container18 {
+              gap: var(--dl-layout-space-halfunit);
+              height: 100%;
+              max-width: var(--dl-layout-size-xxlarge);
+              min-width: 100%;
+              min-height: 100%;
+              margin-bottom: 14px;
+            }
+            .page-image38230522 {
+              width: 100%;
+              min-width: 50%;
+              min-height: 50px;
+            }
             .page-container21 {
               gap: var(--dl-layout-space-halfunit);
               height: 100%;

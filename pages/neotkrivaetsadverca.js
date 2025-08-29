@@ -1,32 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 
 import Header from '../components/Header'
 import MainFooter from '../components/MainFooter'
 import SEOHead from '../components/SEOHead'
-import PageNavigation from '../components/PageNavigation'
-import OrderButton from '../components/OrderButton'
-import OrderModal from '../components/OrderModal'
-import Breadcrumbs from '../components/Breadcrumbs'
-import RelatedArticles from '../components/RelatedArticles'
 import { getSEOData } from '../utils/seoConfig'
 import { getProblemPageStructuredData } from '../utils/structuredData'
 
 const Page = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openModal = () => {
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
   const seoData = getSEOData('/neotkrivaetsadverca')
   const baseUrl = 'https://remstirmash.od.ua'
   const structuredData = getProblemPageStructuredData(
-    'Ремонт заблокированной две��цы стиральной машины',
-    'Профессиональный ремонт заблокированно�� дверцы стиральной машины в Одессе. Ремонт замка люка, разблокировка.',
+    'Ремонт заблокированной дверцы стиральной машины',
+    'Профессиональный ремонт заблокированной дверцы стиральной машины в Одессе. Ремонт замка люка, разблокировка.',
     `${baseUrl}/neotkrivaetsadverca`
   )
 
@@ -41,13 +27,14 @@ const Page = (props) => {
           structuredData={structuredData}
         />
         <Header />
-        <div className="page-breadcrumbs-section">
-          <Breadcrumbs style="white-left" />
-        </div>
         <main className="page-main">
           <div className="page-left-main-box">
-
             <div className="page-headertextwashermachine">
+              <img
+                alt="image"
+                src="/group%20385-200h.png"
+                className="page-image1"
+              />
               <h1 className="page-text10">
                 <span className="page-text11">
                   У стиральной машины не открывается дверца —
@@ -149,7 +136,7 @@ const Page = (props) => {
                     className="page-vector3"
                   />
                   <a href="#3" className="page-link4">
-                    2. Остатки воды в б��ке или незавершённый цикл
+                    2. Остатки воды в баке или незавершённый цикл
                   </a>
                 </li>
                 <li className="page-li5 list-item">
@@ -159,7 +146,7 @@ const Page = (props) => {
                     className="page-vector4"
                   />
                   <a href="#4" className="page-link5 ge">
-                    3. Засо�� в сливной системе или неиспр��вность датчика уровня (прессостат).
+                    3. Засор в сливной системе или неисправность датчика уровня (прессостат).
                   </a>
                 </li>
                 <li className="page-li6 list-item">
@@ -169,7 +156,7 @@ const Page = (props) => {
                     className="page-vector5"
                   />
                   <a href="#5" className="page-link6 ge">
-                    4. Сбой электроники или от��лючение питания.
+                    4. Сбой электроники или отключение питания.
                   </a>
                 </li>
                 <li className="page-li6 list-item">
@@ -296,7 +283,7 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Многие модели оснащены функцией «Child Lock», которая предотвращает ��лучайное открытие люка в�� время работы. Если эта блокировка активна, дверца не откроется, и на панели обычно горит ��оответствующая пикт��грамма. В таком случае нужно отключить функцию в соответствии с инструкцией к вашей модели — не пытайтесь тянуть дверцу силой, сначала снимит�� защиту.
+                  Многие модели оснащены функцией «Child Lock», которая предотвращает случайное открытие люка в�� время работы. Если эта блокировка активна, дверца не откроется, и на панели обычно горит ��оответствующая пиктограмма. В таком случае нужно отключить функцию в соответствии с инструкцией к вашей модели — не пытайтесь тянуть дверцу силой, сначала снимите защиту.
                 </p>
               </div>
             </section>
@@ -329,10 +316,14 @@ const Page = (props) => {
                     loading="lazy"
                     className="page-image38230523"
                   />
+                  <span className="page-text40">
+                    <span>Стиралка</span>
+                    <br></br>
+                  </span>
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Машина не разблок��рует люк, пока в баке остаётся ��ода, это предохраняет от подтопления. Если цикл был прерван или не завершился, в барабане может остаться вода и блокировка не снимется даже после звукового сигнала об окончании. В такой ситуации попробуйте восстановить нормальную процедуру слива или дождаться автоматического завершения цикла; не дергайте дверцу насильно.
+                  Машина не разблокирует люк, пока в баке остаётся ��ода, это предохраняет от подтопления. Если цикл был прерван или не завершился, в барабане может остаться вода и блокировка не снимется даже после звукового сигнала об окончании. В такой ситуации попробуйте восстановить нормальную процедуру слива или дождаться автоматического завершения цикла; не дергайте дверцу насильно.
                 </p>
               </div>
             </section>
@@ -371,7 +362,7 @@ const Page = (props) => {
                 </figure>
                 <p className="page-text46 vicetext">
                   {' '}
-                  ��сли слив заблокирован — засорился фильтр, дренажный шланг или сифон — вода остаётся в баке и люк удерживается запертым. Аналоги��но, при пол��мке датчика уровня система может «думать», что вода есть, даж�� е��ли её визуально нет, и не снимать блокировку. В таких случаях необходима проверка и очистка сливного тракта или диагностика датчика
+                  Если слив заблокирован — засорился фильтр, дренажный шланг или сифон — вода остаётся в баке и люк удерживается запертым. Аналогично, при поломке датчика уровня система может «думать», что вода есть, даже если её визуально нет, и не снимать блокировку. В таких случаях необходима проверка и очистка сливного тракта или диагностика датчика
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -415,7 +406,7 @@ const Page = (props) => {
                 </figure>
                 <p className="page-text49 vicetext">
                   {' '}
-                  Внезапные перебои с питанием или ошибки в модуле управления могут приводить к «замораживанию» замка люка: кон��роллер просто не получает и��и не обрабатывает команду н�� разблокир��в��у. Иногда помогает полная перезагрузка питания, в иных случаях требуе��ся диагностика и ремонт электронной час��и в сервисном центре.
+                  Внезапные перебои с питанием или ошибки в модуле управления могут приводить к «замораживанию» замка люка: контроллер просто не получает и��и не обрабатывает команду на разблокировку. Иногда помогает полная перезагрузка питания, в иных случаях требуется диагностика и ремонт электронной части в сервисном центре.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -427,7 +418,7 @@ const Page = (props) => {
             <section id="5-1" className="page-fiveproblem2">
               <div className="page-container25 zagolovkiskorobkoy">
                 <h3 className="zagolovki2">
-                  5. Механическая пол��мка замка или ручки.
+                  5. Механическая поломка замка или ручки.
                 </h3>
                 <svg
                   width="330"
@@ -448,9 +439,18 @@ const Page = (props) => {
                 </svg>
               </div>
               <div className="page-container26">
+                <figure className="page-container27">
+                  <img
+                    alt="блок управления"
+                    src="/image%203823045-900w.webp"
+                    loading="lazy"
+                    className="page-image38230525"
+                  />
+                  <span className="page-text48">Блок управления</span>
+                </figure>
                 <p className="page-text49 vicetext">
                   {' '}
-                  Износ или поломка механики з��мка, сломанная ручка или повреждённый фиксатор — частая причина невозможно��ти от��рытия люка. При такой неисправн��сти замок может не фиксироваться или проворачиваться «в холостую», и потребуется замена механизма или ручки: это уже профильная работа для мастера.
+                  Износ или поломка механики замка, сломанная ручка или повреждённый фиксатор — частая причина невозможности от��рытия люка. При такой неисправности замок может не фиксироваться или проворачиваться «в холостую», и потребуется замена механизма или ручки: это уже профильная работа для мастера.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -592,10 +592,10 @@ const Page = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <h2 className="page-text50">Когда вызывать м��стера?</h2>
+              <h2 className="page-text50">Когда вызывать мастера?</h2>
               <p className="page-text51">
                 <span className="page-text52">
-                  Ес��и вы выполнили все рекомендации, но проблема оста��ась —
+                  Если вы выполнили все рекомендации, но проблема оста��ась —
                   обратитесь в сервис
                   <span
                     dangerouslySetInnerHTML={{
@@ -609,7 +609,7 @@ const Page = (props) => {
                 <span className="page-text56">.</span>
                 <span className="page-text57">
                   {' '}
-                  Наши специалисты быстро прие����ут к вам в желаемое вами время в
+                  Наши специалисты быстро прие��ут к вам в желаемое вами время в
                   любой район Одессы и выпол��ят качественную диагностику и
                   ремонт.
                 </span>
@@ -631,7 +631,7 @@ const Page = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <strong className="page-text58">Работаем без ��ыходны��</strong>
+              <strong className="page-text58">Работаем без выходны��</strong>
               <div className="page-container28">
                 <div className="page-container29">
                   <div className="page-container30">
@@ -651,19 +651,55 @@ const Page = (props) => {
                     <strong className="page-text60">+38 (048) 123-35-21</strong>
                   </div>
                 </div>
-                <OrderButton onClick={openModal} text="Заказать мастера" />
+                <button type="button" className="page-button button">
+                  Перезвоните мне
+                </button>
               </div>
             </section>
-            <PageNavigation
-              prevPage={{
-                href: '/nenabiraetvodu',
-                title: 'Стиральная машина не набирает воду'
-              }}
-              nextPage={{
-                href: '/nekrutitbaraban',
-                title: 'Стиральная машина н�� крутит барабан'
-              }}
-            />
+            <div className="page-container32">
+              <div className="page-container33">
+                <div className="page-container34">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon54"
+                  >
+                    <path
+                      d="M19 468L471 19q19-19 45.5-19T562 19l92 91q19 19 19 45.5T654 201L468 385h492q27 0 45.5 18.5T1024 449v128q0 26-18.5 45T960 641H467l187 185q19 18 19 45t-19 45l-92 91q-19 19-45.5 19t-45.5-19L19 559Q0 540 0 513.5T19 468"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container35">
+                  <h4 className="page-text61">Предидущая</h4>
+                  <span className="page-text62">
+                    Стиральная машина не крутит барабан
+                  </span>
+                </div>
+              </div>
+              <div className="page-container36">
+                <div className="page-container37">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon56"
+                  >
+                    <path
+                      d="m1005 558l-452 448q-19 19-45.5 19t-45.5-19l-92-91q-19-18-19-45t19-45l186-184H64q-27 0-45.5-19T0 577V449q0-27 18.5-45.5T64 385h493L370 200q-19-19-19-45.5t19-45.5l92-91q19-18 45.5-18T553 18l452 449q19 19 19 45.5t-19 45.5"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container38">
+                  <h4 className="page-text63">��ледующ��я</h4>
+                  <span className="page-text64">
+                    Стиральная машина не нагревает воду
+                  </span>
+                </div>
+              </div>
+            </div>
             <svg
               width="330"
               xmlns="http://www.w3.org/2000/svg"
@@ -681,21 +717,73 @@ const Page = (props) => {
                 strokeDasharray="11 11"
               ></path>
             </svg>
-            <RelatedArticles />
+            <div className="page-container39">
+              <h4 className="page-text65">
+                <span>Другие статьи</span>
+                <br></br>
+              </h4>
+            </div>
+            <div className="page-container40">
+              <div className="page-container41">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823145-200h.png"
+                  loading="lazy"
+                  className="page-image38230321"
+                />
+                <span className="page-text68">
+                  Как избавиться от жирных пятен н�� одежде в домашних усло��иях?
+                </span>
+              </div>
+              <div className="page-container42">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823146-200h.png"
+                  loading="lazy"
+                  className="page-image38230322"
+                />
+                <span className="page-text69">
+                  Как уд��лить пятна крови с одежды без следов?
+                </span>
+              </div>
+              <div className="page-container43">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823147-200h.png"
+                  loading="lazy"
+                  className="page-image38230323"
+                />
+                <span className="page-text70">
+                  Как самостоятельно удалить жвачку с одежды?
+                </span>
+              </div>
+              <div className="page-container44">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823144-200h.png"
+                  loading="lazy"
+                  className="page-image38230324"
+                />
+                <span className="page-text71">
+                  Как правильно стирать пуховик в автоматической стиральной
+                  машине?
+                </span>
+              </div>
+            </div>
           </div>
           <div className="page-dops-info">
             <section className="page-frame1299">
               <span className="page-text72">Вам будет интересно:</span>
               <div className="page-frame12981">
                 <span className="page-text73">
-                  Ошибк��, котор��е приводят к дорогостоящему ремонту (и как их
+                  Ошибки, которые приводят к дорогостоящему ремонту (и как их
                   избежать)
                 </span>
                 <div className="page-container45"></div>
               </div>
               <div className="page-frame12982">
                 <span className="page-text74">
-                  К��к продлить жизнь машине на 3–5 лет — простые привычки,
+                  Как продлить жизнь машине на 3–5 лет — простые привычки,
                   которые сэкономят деньги
                 </span>
                 <div className="page-container46"></div>
@@ -710,7 +798,7 @@ const Page = (props) => {
               <div className="page-frame12984">
                 <span className="page-text76">
                   Как сэкономить электричество и воду — реальные настройки и
-                  лайфхак��
+                  лайфхаки
                 </span>
                 <div className="page-container48"></div>
               </div>
@@ -730,7 +818,6 @@ const Page = (props) => {
           </div>
         </main>
         <MainFooter />
-        <OrderModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
       <style jsx>
         {`
@@ -741,12 +828,6 @@ const Page = (props) => {
             align-items: center;
             flex-direction: column;
             background-color: #ffffff;
-          }
-          .page-breadcrumbs-section {
-            width: 100%;
-            max-width: 1300px;
-            padding: 0 var(--dl-layout-space-unit);
-            margin: 0 auto;
           }
           .page-header {
             gap: 361px;
@@ -776,7 +857,7 @@ const Page = (props) => {
             justify-content: center;
           }
           .page-left-main-box {
-            gap: 0;
+            gap: var(--dl-layout-space-oneandhalfunits);
             width: 100%;
             height: 100%;
             display: flex;
@@ -787,22 +868,12 @@ const Page = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-
-          .page-left-main-box > *:not(:first-child) {
-            margin-top: var(--dl-layout-space-oneandhalfunits);
-          }
-
-          .page-container11 {
-            margin-top: 0px !important;
-          }
           .page-headertextwashermachine {
             width: 100%;
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            margin-bottom: 45px;
           }
-          @media (max-width: 487px) { .page-headertextwashermachine { margin-top: 53px; } }
           .page-image1 {
             width: 50px;
             height: 50px;
@@ -842,7 +913,7 @@ const Page = (props) => {
             max-width: 586px;
             min-width: 290px;
             box-shadow: 0px 0px 20px 3px #d4d4d4;
-            margin-top: 8px;
+            margin-top: var(--dl-layout-space-unit);
             align-items: flex-start;
             padding-top: var(--dl-layout-space-unit);
             border-radius: var(--dl-layout-radius-imageradius);
@@ -1252,6 +1323,7 @@ const Page = (props) => {
             margin-left: var(--dl-layout-space-oneandhalfunits);
             flex-direction: column;
             justify-content: center;
+            background-color: rgba(69, 197, 237, 0.1);
           }
           .page-image38230523 {
             float: right;
@@ -1377,6 +1449,7 @@ const Page = (props) => {
             margin-left: var(--dl-layout-space-oneandhalfunits);
             flex-direction: column;
             justify-content: center;
+            background-color: rgba(69, 197, 237, 0.1);
           }
           .page-image38230525 {
             float: right;
@@ -2244,9 +2317,6 @@ const Page = (props) => {
             }
           }
           @media (max-width: 767px) {
-            .page-breadcrumbs-section {
-              padding: 0 var(--dl-layout-space-oneandhalfunits);
-            }
             .page-left-main-box {
               align-items: center;
             }
@@ -2279,9 +2349,6 @@ const Page = (props) => {
             }
           }
           @media (max-width: 479px) {
-            .page-breadcrumbs-section {
-              padding: 0 var(--dl-layout-space-unit);
-            }
             .page-header {
               height: 84px;
             }
@@ -2293,6 +2360,7 @@ const Page = (props) => {
             }
             .page-headertextwashermachine {
               position: relative;
+              margin-top: var(--dl-layout-space-fiveunits);
             }
             .page-image1 {
               top: -149px;
@@ -2382,8 +2450,19 @@ const Page = (props) => {
               font-size: 18px;
               text-align: center;
             }
-            .page-container18 { gap: var(--dl-layout-space-halfunit); width: 280px; max-width: 280px; min-width: 280px; height: auto; min-height: 0; margin: 12px auto 16px; float: none; }
-            .page-image38230522 { width: 100%; height: 170px; object-fit: cover; min-width: 0; min-height: 0; }
+            .page-container18 {
+              gap: var(--dl-layout-space-halfunit);
+              height: 100%;
+              max-width: var(--dl-layout-size-xxlarge);
+              min-width: 100%;
+              min-height: 100%;
+              margin-bottom: 14px;
+            }
+            .page-image38230522 {
+              width: 100%;
+              min-width: 50%;
+              min-height: 50px;
+            }
             .page-container21 {
               gap: var(--dl-layout-space-halfunit);
               height: 100%;

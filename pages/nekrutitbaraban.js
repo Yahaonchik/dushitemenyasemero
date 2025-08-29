@@ -1,32 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 
 import Header from '../components/Header'
 import MainFooter from '../components/MainFooter'
 import SEOHead from '../components/SEOHead'
-import PageNavigation from '../components/PageNavigation'
-import OrderButton from '../components/OrderButton'
-import OrderModal from '../components/OrderModal'
-import Breadcrumbs from '../components/Breadcrumbs'
-import RelatedArticles from '../components/RelatedArticles'
 import { getSEOData } from '../utils/seoConfig'
 import { getProblemPageStructuredData } from '../utils/structuredData'
 
 const Page = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openModal = () => {
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
   const seoData = getSEOData('/nekrutitbaraban')
   const baseUrl = 'https://remstirmash.od.ua'
   const structuredData = getProblemPageStructuredData(
     'Ремонт стиральной машины которая не крутит барабан',
-    'Профессиональ��ый ремонт стиральных машин с неработающим барабаном в Одессе. Замена ремня, ремонт двигателя.',
+    'Профессиональный ремонт стиральных машин с неработающим барабаном в Одессе. Замена ремня, ремонт двигателя.',
     `${baseUrl}/nekrutitbaraban`
   )
 
@@ -41,15 +27,17 @@ const Page = (props) => {
           structuredData={structuredData}
         />
         <Header />
-        <div className="page-breadcrumbs-section">
-          <Breadcrumbs style="white-left" />
-        </div>
         <main className="page-main">
           <div className="page-left-main-box">
             <div className="page-headertextwashermachine">
+              <img
+                alt="image"
+                src="/group%20385-200h.png"
+                className="page-image1"
+              />
               <h1 className="page-text10">
                 <span className="page-text11">
-                  Стиральная машина не ��рутит барабан —
+                  Стиральная машина не крутит барабан —
                 </span>
                 <span className="page-text12">
                   <span
@@ -58,7 +46,7 @@ const Page = (props) => {
                     }}
                   />
                 </span>
-                <span className="page-text13">ч��о делать?</span>
+                <span className="page-text13">что делать?</span>
               </h1>
             </div>
             <section className="page-container11">
@@ -127,7 +115,7 @@ const Page = (props) => {
                 ></circle>
               </svg>
               <strong className="page-text14">
-                <span>Стиральн��я машина не крутит барабан:</span>
+                <span>Стиральная машина не крутит барабан:</span>
                 <br></br>
               </strong>
               <ul className="page-ul list">
@@ -154,7 +142,7 @@ const Page = (props) => {
                     className="page-vector2"
                   />
                   <a href="#2" className="page-link3 ge">
-                    1. Дверца не з��крыта или не заблокирована.
+                    1. Дверца не закрыта или не заблокирована.
                   </a>
                 </li>
                 <li className="page-li4 list-item ge">
@@ -174,7 +162,7 @@ const Page = (props) => {
                     className="page-vector4"
                   />
                   <a href="#4" className="page-link5 ge">
-                    3. Неиспр��вность двигателя или щёток.
+                    3. Неисправность двигателя или щёток.
                   </a>
                 </li>
                 <li className="page-li6 list-item">
@@ -184,7 +172,7 @@ const Page = (props) => {
                     className="page-vector5"
                   />
                   <a href="#5" className="page-link6 ge">
-                    4. Сбои в электрон��ом блоке управления
+                    4. Сбои в электронном блоке управления
                   </a>
                 </li>
               </ul>
@@ -281,44 +269,56 @@ const Page = (props) => {
                 </svg>
               </div>
               <div className="page-container17">
+                <figure className="page-container18">
+                  <img
+                    alt="стиральная машина"
+                    src="/100x100/image%203823140-900w.webp"
+                    loading="eager"
+                    className="page-image38230522"
+                  />
+                  <span className="page-text19">
+                    <span>Первая помощь</span>
+                    <br></br>
+                  </span>
+                </figure>
                 <div className="vicetext">
                   <p>
-                    <strong>1. ��бесточьте машину и слейте воду.</strong><br />
-                    Выключите стиральную ма��ину и отключите её от сети. Слейте
+                    <strong>1. Обесточьте машину и слейте воду.</strong><br />
+                    Выключите стиральную машину и отключите её от сети. Слейте
                     воду из барабана с помощью аварийного шланга или через
-                    фильтр (если таковой имеется). ��то необходимо сделать перед
+                    фильтр (если таковой имеется). Это необходимо сделать перед
                     любыми проверками, ч��обы вода не помешала осмотру и не
                     повредила пол под машиной.
                   </p>
 
                   <p>
-                    <strong>2. Перераспределите или уберите часть б��лья.</strong><br />
+                    <strong>2. Перераспределите или уберите часть белья.</strong><br />
                     Откройте дверцу и выньте часть белья. При необходимости
                     уменьшите загрузку, если она была слишком большой. Если
-                    белья совсем мало, до��авьте ещё 2–3 вещи равного веса.
-                    ��стряхните оставшиеся вещи, равномерно распределив их по
+                    белья совсем мало, добавьте ещё 2–3 вещи равного веса.
+                    Встряхните оставшиеся вещи, равномерно распределив их по
                     барабану.
                   </p>
 
                   <p>
                     <strong>3. Проверьте барабан вручную.</strong><br />
-                    Попробуйте покрутить ба��абан рукой (после слива воды барабан
+                    Попробуйте покрутить барабан рукой (после слива воды барабан
                     должен свободно вращаться). Если при вращении чувствуются
                     заедания или слышится посторонний шум, возможно, внутри
-                    чт��-то застряло ��ли заклинило. В эт��м случае снова осмотрите
-                    барабан �� бак, удалите посторонние предметы.
+                    что-то застряло или заклинило. В этом случае снова осмотрите
+                    барабан и бак, удалите посторонние предметы.
                   </p>
 
                   <p>
                     <strong>4. Закройте дверцу.</strong><br />
                     Убедитесь, что дверца люка закрыта плотно. Откройте и
-                    закройте её до характерного щелчка. ��ез плотной фиксации
+                    закройте её до характерного щелчка. Без плотной фиксации
                     дверца остаётся разблокированной – машина не начнёт цикл
                     стирки.
                   </p>
 
                   <p>
-                    <strong>5. Запустите тестовый цикл без бе��ья.</strong><br />
+                    <strong>5. Запустите тестовый цикл без белья.</strong><br />
                     Включите любой короткий цикл (например, «хлопок») на обычной
                     мощности без загрузки белья. Проследите, начнётся ли
                     вращение барабана на этапе отжима. Если барабан по-прежнему
@@ -336,7 +336,7 @@ const Page = (props) => {
             <section id="2" className="page-thirdproblem1">
               <div className="page-container16 zagolovkiskorobkoy">
                 <h3 className="zagolovki2">
-                  1. Дверца не закр��та или не заблокирована.
+                  1. Дверца не закрыта или не заблокирована.
                 </h3>
                 <svg
                   width="330"
@@ -372,13 +372,13 @@ const Page = (props) => {
                 <p className="vicetext">
                   {' '}
                   Если люк не закрыт «до щелчка» или что-то мешает защёлке —
-                  например, тка���� прилипла к уплотнител�� — машина распознает это
-                  как не��справность и не запустит программу; отсутствие
-                  характерного щелч���� или свобод��о болтающаяс�� дверца могут
+                  например, ткан�� прилипла к уплотнителю — машина распознает это
+                  как неисправность и не запустит программу; отсутствие
+                  характерного щелч���� или свобод��о болтающаяся дверца могут
                   указывать на механическую поломку замка. В таких случаях нужно
                   убедиться, что люк закрыт плотно и ничего не зажато; при
-                  признаках повреждения замка или его ненадёжной ��иксации замена
-                  узла в сервисе решит проблему, поскольку продолж��ть работу с
+                  признаках повреждения замка или его ненадёжной фиксации замена
+                  узла в сервисе решит проблему, поскольку продолжать работу с
                   неисправной защёлкой опасно и неэффективно.
                 </p>
               </div>
@@ -419,14 +419,14 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Если двигатель работает, слышен гул, н�� барабан не вращ��ется
-                  или вращается вяло, ве��оятно, слетел или порван приводной
-                  ремен��; пр�� этом машина может выполнять другие эт���пы цик����
+                  Если двигатель работает, слышен гул, н�� барабан не вращается
+                  или вращается вяло, вероятно, слетел или порван приводной
+                  ремень; при этом машина может выполнять другие эт���пы цик����
                   (налив, нагрев), но не передавать вращение на барабан. В таких
                   ситуациях при доступе к задней панели можно визуально
                   осмотреть ремень: если он перекинул��я, его аккуратно
-                  во����ращают на шкив, а при ��вных повреждения�� ремень меняют —
-                  при от��утствии уверенност�� в своих навыках лучше доверить
+                  возвращают на шкив, а при ��вных повреждения�� ремень меняют —
+                  при отсутствии уверенност�� в своих навыках лучше доверить
                   замену мастеру, чтобы избежать невер��ой установки или
                   дополнительного повреждения.
                 </p>
@@ -470,15 +470,15 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  В коллекторных двигателях со врем��нем изнашиваются угольные
+                  В коллекторных двигателях со временем изнашиваются угольные
                   щётки, и при плохом контакте мотор теряет мощность или вообще
                   не ��апускается; иногда слышен только гул мотора без д��ижения
                   барабана, а при серьёзном ��овреждении обмоток возможен и
-                  полный отказ. При подоз����нии на изн��с щёток или внутренние
-                  проблемы мотор�� самостоятельный р��монт не рекомендуется —
-                  точную диагн��стику и замену выполняет мастер, который пров��рит
+                  полный отказ. При подозрении на износ щёток или внутренние
+                  проблемы мотор�� самостоятельный ремонт не рекомендуется —
+                  точную диагностику и замену выполняет мастер, который проверит
                   состояние щёток, обмоток и подшипников и при необходимости
-                  выполни�� квалифицированную замену.
+                  выполнит квалифицированную замену.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -490,7 +490,7 @@ const Page = (props) => {
             <section id="5" className="page-fiveproblem2">
               <div className="page-container25 zagolovkiskorobkoy">
                 <h3 className="zagolovki2">
-                  4. Сбои в э��ектронном блоке упра��ления
+                  4. Сбои в электронном блоке упра��ления
                 </h3>
                 <svg
                   width="330"
@@ -519,7 +519,7 @@ const Page = (props) => {
                     className="page-image38230522"
                   />
                   <span className="page-text19">
-                    <span>��лок управления</span>
+                    <span>Блок управления</span>
                     <br></br>
                   </span>
                 </figure>
@@ -527,14 +527,14 @@ const Page = (props) => {
                   {' '}
                   Отказ платы управления, неисправность та��одатчика или ��ругих
                   сенсоров может приводить к тому, что контроллер не получает
-                  корректных данных о поло��ении и оборотах барабана и блокирует
-                  отжим; проявления варьирую��ся от мигающих ошибок на д��сплее до
+                  корректных данных о положении и оборотах барабана и блокирует
+                  отжим; проявления варьируются от мигающих ошибок на д��сплее до
                   полной не��аботос��особности на отдельных этапах. В таких
                   случаях перезагрузка — кратковременное отключение питания —
                   иногда устраняет временные сбои, но при повторяющихся ошибках
                   требуется профессиональная диагностика и ремонт элек��роники,
-                  так как сам��стоятел��ные вмешательства в плату без опыта
-                  чреваты усугублением ��еисправно��ти.
+                  так как самостоятельные вмешательства в плату без опыта
+                  чреваты усугублением неисправно��ти.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -676,10 +676,10 @@ const Page = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <h2 className="page-text50">��огда вы��ывать мастера?</h2>
+              <h2 className="page-text50">Когда вы��ывать мастера?</h2>
               <p className="page-text51">
                 <span className="page-text52">
-                  Если вы выполни��и все рекомендации, но пробл��ма осталась —
+                  Если вы выполнили все рекомендации, но пробл��ма осталась —
                   обратитесь в серв��с
                   <span
                     dangerouslySetInnerHTML={{
@@ -693,8 +693,8 @@ const Page = (props) => {
                 <span className="page-text56">.</span>
                 <span className="page-text57">
                   {' '}
-                  Наши специалисты быс��ро прие��ут к вам в желаемое вами вре��я в
-                  любой район Одессы и выполнят качественн����ю диагностику и
+                  Наши специалисты быс��ро прие��ут к вам в желаемое вами время в
+                  любой район Одессы и выполнят качественную диагностику и
                   ремонт.
                 </span>
               </p>
@@ -735,19 +735,55 @@ const Page = (props) => {
                     <strong className="page-text60">+38 (048) 123-35-21</strong>
                   </div>
                 </div>
-                <OrderButton onClick={openModal} text="Заказать мастера" />
+                <button type="button" className="page-button button">
+                  Перезвоните мне
+                </button>
               </div>
             </section>
-            <PageNavigation
-              prevPage={{
-                href: '/neotkrivaetsadverca',
-                title: 'У стиральной маш��ны не открывается дверца'
-              }}
-              nextPage={{
-                href: '/neslivaetvodu',
-                title: 'Стиральная машина не сливает воду'
-              }}
-            />
+            <div className="page-container32">
+              <div className="page-container33">
+                <div className="page-container34">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon54"
+                  >
+                    <path
+                      d="M19 468L471 19q19-19 45.5-19T562 19l92 91q19 19 19 45.5T654 201L468 385h492q27 0 45.5 18.5T1024 449v128q0 26-18.5 45T960 641H467l187 185q19 18 19 45t-19 45l-92 91q-19 19-45.5 19t-45.5-19L19 559Q0 540 0 513.5T19 468"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container35">
+                  <h4 className="page-text61">Предидущая</h4>
+                  <span className="page-text62">
+                    Стиральная машина не крутит барабан
+                  </span>
+                </div>
+              </div>
+              <div className="page-container36">
+                <div className="page-container37">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon56"
+                  >
+                    <path
+                      d="m1005 558l-452 448q-19 19-45.5 19t-45.5-19l-92-91q-19-18-19-45t19-45l186-184H64q-27 0-45.5-19T0 577V449q0-27 18.5-45.5T64 385h493L370 200q-19-19-19-45.5t19-45.5l92-91q19-18 45.5-18T553 18l452 449q19 19 19 45.5t-19 45.5"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container38">
+                  <h4 className="page-text63">Следующая</h4>
+                  <span className="page-text64">
+                    Стиральная машина не нагревает воду
+                  </span>
+                </div>
+              </div>
+            </div>
             <svg
               width="330"
               xmlns="http://www.w3.org/2000/svg"
@@ -765,35 +801,87 @@ const Page = (props) => {
                 strokeDasharray="11 11"
               ></path>
             </svg>
-            <RelatedArticles />
+            <div className="page-container39">
+              <h4 className="page-text65">
+                <span>Другие статьи</span>
+                <br></br>
+              </h4>
+            </div>
+            <div className="page-container40">
+              <div className="page-container41">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823145-200h.png"
+                  loading="lazy"
+                  className="page-image38230321"
+                />
+                <span className="page-text68">
+                  Как избавиться от жирных пятен н�� одежде в домашних условиях?
+                </span>
+              </div>
+              <div className="page-container42">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823146-200h.png"
+                  loading="lazy"
+                  className="page-image38230322"
+                />
+                <span className="page-text69">
+                  Как уд��лить пятна кро��и с одежды без следов?
+                </span>
+              </div>
+              <div className="page-container43">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823147-200h.png"
+                  loading="lazy"
+                  className="page-image38230323"
+                />
+                <span className="page-text70">
+                  Как самостоятельно удалить жвачку с одежды?
+                </span>
+              </div>
+              <div className="page-container44">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823144-200h.png"
+                  loading="lazy"
+                  className="page-image38230324"
+                />
+                <span className="page-text71">
+                  Как правильно стирать п��ховик в автоматической стиральной
+                  машине?
+                </span>
+              </div>
+            </div>
           </div>
           <div className="page-dops-info">
             <section className="page-frame1299">
-              <span className="page-text72">Вам будет ��нтересно:</span>
+              <span className="page-text72">Вам будет интересно:</span>
               <div className="page-frame12981">
                 <span className="page-text73">
                   Ошибки, которые приводят к дорогостоящему р��монту (и как их
-                  и��бежать)
+                  избежать)
                 </span>
                 <div className="page-container45"></div>
               </div>
               <div className="page-frame12982">
                 <span className="page-text74">
                   Как продлить жизнь машине на 3–5 лет — простые привычки,
-                  которые с��кономя�� деньги
+                  которые с��кономят деньги
                 </span>
                 <div className="page-container46"></div>
               </div>
               <div className="page-frame12983">
                 <span className="page-text75">
-                  Почему ст��ралка воняет — 7 быстрых причин и что сделать прям����
+                  Почему ст��ралка воняет — 7 быстрых причин и что сделать прям��
                   сейчас
                 </span>
                 <div className="page-container47"></div>
               </div>
               <div className="page-frame12984">
                 <span className="page-text76">
-                  Как сэкономить элект��ичество и воду — реаль��ые настройки и
+                  Как сэкономить электричество и воду — реаль��ые настройки и
                   лайфхаки
                 </span>
                 <div className="page-container48"></div>
@@ -806,7 +894,7 @@ const Page = (props) => {
               </div>
               <div className="page-frame12986">
                 <span className="page-text78">
-                  Мифы о стир��лках: что правда, а что — вымысел?
+                  Мифы о стиралках: что правда, а что — вымысел?
                 </span>
                 <div className="page-container50"></div>
               </div>
@@ -814,7 +902,6 @@ const Page = (props) => {
           </div>
         </main>
         <MainFooter />
-        <OrderModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
       <style jsx>
         {`
@@ -825,12 +912,6 @@ const Page = (props) => {
             align-items: center;
             flex-direction: column;
             background-color: #ffffff;
-          }
-          .page-breadcrumbs-section {
-            width: 100%;
-            max-width: 1300px;
-            padding: 0 var(--dl-layout-space-unit);
-            margin: 0 auto;
           }
           .page-header {
             gap: 361px;
@@ -860,7 +941,7 @@ const Page = (props) => {
             justify-content: center;
           }
           .page-left-main-box {
-            gap: 0;
+            gap: var(--dl-layout-space-oneandhalfunits);
             width: 100%;
             height: 100%;
             display: flex;
@@ -871,20 +952,11 @@ const Page = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-
-          .page-left-main-box > *:not(:first-child) {
-            margin-top: var(--dl-layout-space-oneandhalfunits);
-          }
-
-          .page-container11 {
-            margin-top: 8px !important;
-          }
           .page-headertextwashermachine {
             width: 100%;
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            margin-bottom: 45px;
           }
           .page-image1 {
             width: 50px;
@@ -925,7 +997,7 @@ const Page = (props) => {
             max-width: 586px;
             min-width: 290px;
             box-shadow: 0px 0px 20px 3px #d4d4d4;
-            margin-top: 8px;
+            margin-top: var(--dl-layout-space-unit);
             align-items: flex-start;
             padding-top: var(--dl-layout-space-unit);
             border-radius: var(--dl-layout-radius-imageradius);
@@ -1280,6 +1352,7 @@ const Page = (props) => {
             margin-left: var(--dl-layout-space-oneandhalfunits);
             flex-direction: column;
             justify-content: center;
+            background-color: rgba(69, 197, 237, 0.1);
           }
           .page-image38230522 {
             float: right;
@@ -2362,7 +2435,7 @@ const Page = (props) => {
             }
             .page-headertextwashermachine {
               position: relative;
-              margin-top: 53px;
+              margin-top: var(--dl-layout-space-fiveunits);
             }
             .page-image1 {
               top: -149px;
@@ -2452,8 +2525,19 @@ const Page = (props) => {
               font-size: 18px;
               text-align: center;
             }
-            .page-container18 { gap: var(--dl-layout-space-halfunit); width: 280px; max-width: 280px; min-width: 280px; height: auto; min-height: 0; margin: 12px auto 16px; float: none; }
-            .page-image38230522 { width: 100%; height: 170px; object-fit: cover; min-width: 0; min-height: 0; }
+            .page-container18 {
+              gap: var(--dl-layout-space-halfunit);
+              height: 100%;
+              max-width: var(--dl-layout-size-xxlarge);
+              min-width: 100%;
+              min-height: 100%;
+              margin-bottom: 14px;
+            }
+            .page-image38230522 {
+              width: 100%;
+              min-width: 50%;
+              min-height: 50px;
+            }
             .page-container21 {
               gap: var(--dl-layout-space-halfunit);
               height: 100%;

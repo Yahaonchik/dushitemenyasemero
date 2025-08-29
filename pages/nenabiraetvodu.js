@@ -1,33 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 
 import Header from '../components/Header'
 import MainFooter from '../components/MainFooter'
 import SEOHead from '../components/SEOHead'
-import PageNavigation from '../components/PageNavigation'
-import OrderButton from '../components/OrderButton'
-import OrderModal from '../components/OrderModal'
-import Breadcrumbs from '../components/Breadcrumbs'
-import RelatedArticles from '../components/RelatedArticles'
 import { getSEOData } from '../utils/seoConfig'
 import { getProblemPageStructuredData } from '../utils/structuredData'
 
 const Page = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openModal = () => {
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
-
   const seoData = getSEOData('/nenabiraetvodu')
   const baseUrl = 'https://remstirmash.od.ua'
   const structuredData = getProblemPageStructuredData(
     'Ремонт стиральной машины которая не н��бирает воду',
-    'Профессиональный ремонт стир��льных машин которые не набирают во��у в Одессе. Чистка фильтров, ремонт клапанов.',
+    'Профессиональный ремонт стиральных машин которые не набирают воду в Одессе. Чистка фильтров, ремонт клапанов.',
     `${baseUrl}/nenabiraetvodu`
   )
 
@@ -42,12 +27,14 @@ const Page = (props) => {
           structuredData={structuredData}
         />
         <Header />
-        <div className="page-breadcrumbs-section">
-          <Breadcrumbs style="white-left" />
-        </div>
         <main className="page-main">
           <div className="page-left-main-box">
             <div className="page-headertextwashermachine">
+              <img
+                alt="image"
+                src="/group%20385-200h.png"
+                className="page-image1"
+              />
               <h1 className="page-text10">
                 <span className="page-text11">
                   Ст��ральная машина не набирает воду —
@@ -139,7 +126,7 @@ const Page = (props) => {
                     className="page-vector1"
                   />
                   <a href="#1" className="page-link1 ge">
-                    ����то делать, если машина не набирает воду?
+                    ��то делать, если машина не набирает воду?
                   </a>
                 </li>
                 <li className="page-li2 list-item">
@@ -185,7 +172,7 @@ const Page = (props) => {
                     className="page-vector5"
                   />
                   <a href="#5" className="page-link6 ge">
-                    4. ��еисправен впускной клапан
+                    4. Неисправен впускной клапан
                   </a>
                 </li>
                 <li className="page-li6 list-item">
@@ -302,49 +289,57 @@ const Page = (props) => {
                 </svg>
               </div>
               <div className="page-container13">
+                <figure className="page-container14">
+                  <img
+                    alt="стиральная машина"
+                    src="/100x100/image%203823140-900w.webp"
+                    loading="eager"
+                    className="page-image38230521"
+                  />
+                </figure>
                 <div className="vicetext">
                   <p>
                     <strong>1. Выключите питание и закройте кран.</strong><br />
-                    Прежде чем проверять узлы машины, отключите её от электросети и перекройте подачу воды. Так ��ы обезопасите себя и технику.
+                    Прежде чем проверять узлы машины, отключите её от электросети и перекройте подачу воды. Так вы обезопасите себя и технику.
                   </p>
 
                   <p>
                     <strong>2. Проверьте кран и напор.</strong><br />
-                    Откройте кран на полную мощность и оцените напор. Если воды нет в кране, позвоните в коммунальную службу. Если вентиль был за��рыт, полностью его откройте.
+                    Откройте кран на полную мощность и оцените напор. Если воды нет в кране, позвоните в коммунальную службу. Если вентиль был закрыт, полностью его откройте.
                   </p>
 
                   <p>
                     <strong>3. Осмотрите заливной шланг.</strong><br />
-                    Убедитесь, что на шланг ничего не давит и нет перегибов. Открутите его от машины (не забудьте поставить под него таз) и проверьте, идёт ли из него вода. Если шл��нг пережат или перекручен, распрямите его или замените.
+                    Убедитесь, что на шланг ничего не давит и нет перегибов. Открутите его от машины (не забудьте поставить под него таз) и проверьте, идёт ли из него вода. Если шланг пережат или перекручен, распрямите его или замените.
                   </p>
 
                   <p>
                     <strong>4. Очистите сетчатый фильтр.</strong><br />
-                    Перекройте воду, аккуратно открутите шланг у машины и достаньте сеточку-фильтр. Промойте её от загрязне��ий под сильной струёй или почистите щёткой. Соберите всё обратно.
+                    Перекройте воду, аккуратно открутите шланг у машины и достаньте сеточку-фильтр. Промойте её от загрязнений под сильной струёй или почистите щёткой. Соберите всё обратно.
                   </p>
 
                   <p>
                     <strong>5. Проверьте дверцу.</strong><br />
-                    Убедитесь, что люк закрывается плотно и фиксируется. Если бе��ьё мешает закрытию, правильно уложите вещи. Маши��а не начнёт залив, пока замок не сработает.
+                    Убедитесь, что люк закрывается плотно и фиксируется. Если бельё мешает закрытию, правильно уложите вещи. Маши��а не начнёт залив, пока замок не сработает.
                   </p>
 
                   <p>
                     <strong>6. Перезагрузите машину.</strong><br />
-                    Иногда помог��ет простой сброс: отключите СМА от сети на 10–15 секунд, затем включите з��ново. Это снимает случ��йные ошибки бл��ка управления.
+                    Иногда помогает простой сброс: отключите СМА от сети на 10–15 секунд, затем включите заново. Это снимает случайные ошибки блока управления.
                   </p>
                 </div>
               </div>
             </section>
             <div className="page-container15">
               <h2 className="page-text34">
-                <span>Основны�� пр��ч��ны поломки:</span>
+                <span>Основны�� пр��чины поломки:</span>
                 <br></br>
               </h2>
             </div>
             <section id="2" className="page-thirdproblem1">
               <div className="page-container16 zagolovkiskorobkoy">
                 <h3 className="zagolovki2">
-                  1. Закрыт кран подачи воды / ��изкое давление
+                  1. Закрыт кран подачи воды / низкое давление
                 </h3>
                 <svg
                   width="330"
@@ -379,7 +374,7 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Водяной кран – это вент��ль на трубе, подающей воду к машинке. Если он закрыт или нап��р воды очень слабый, вода в машину просто не поступает. Признак тако�� неисправн��сти: машина пытается начать работу (гудит), но вода не набирается или идёт очень медленно. Убедит��сь, что вентиль п��лностью открыт (ручка параллельна трубе).Если напор в кране ��лабый, попробуйте подождать стабилизации давления или сообщить об этом в ЖКХ. Если кран сломан или не держит герметичность, вызовите сантехника или мастера.
+                  Водяной кран – это вентиль на трубе, подающей воду к машинке. Если он закрыт или напор воды очень слабый, вода в машину просто не поступает. Признак такой неисправности: машина пытается начать работу (гудит), но вода не набирается или идёт очень медленно. Убедит��сь, что вентиль п��лностью открыт (ручка параллельна трубе).Если напор в кране слабый, попробуйте подождать стабилизации давления или сообщить об этом в ЖКХ. Если кран сломан или не держит герметичность, вызовите сантехника или мастера.
                 </p>
               </div>
             </section>
@@ -419,14 +414,14 @@ const Page = (props) => {
                 </figure>
                 <p className="vicetext">
                   {' '}
-                  Устройство блокировки люка (УБЛ) фиксирует дверцу перед стартом. Если оно изношено или сломано, дверца не закрывается плот��о и стирка не начнётся. Симптом: машинка не запускается вообще, лю�� может остаться незаблокированным, часто загорается ошибка. Пр��верьте, плотно ли закрывается лю�� – он должен щёлкать. Если замок не срабатывает, машина «гудит», но воды не ��абирается. Осмотрите упл��тнитель и корпус замка: при деформации или поломке ну��ен мастер.
+                  Устройство блокировки люка (УБЛ) фиксирует дверцу перед стартом. Если оно изношено или сломано, дверца не закрывается плотно и стирка не начнётся. Симптом: машинка не запускается вообще, люк может остаться незаблокированным, часто загорается ошибка. Проверьте, плотно ли закрывается лю�� – он должен щёлкать. Если замок не срабатывает, машина «гудит», но воды не набирается. Осмотрите упл��тнитель и корпус замка: при деформации или поломке нужен мастер.
                 </p>
               </div>
             </section>
             <section id="4" className="page-fiveproblem1">
               <div className="page-container22 zagolovkiskorobkoy">
                 <h3 className="zagolovki2">
-                  3. Пережат или перекруче�� заливной шл��нг
+                  3. Пережат или перекручен заливной шланг
                 </h3>
                 <svg
                   width="330"
@@ -458,7 +453,7 @@ const Page = (props) => {
                 </figure>
                 <p className="page-text46 vicetext">
                   {' '}
-                  Заливной шланг – гибкая т��убка от крана к машине. Он не должен быть перегибом, пережатием или смятием. Если на шланг наступили или он перекручен, вода не пойдёт. Симптом – машинка «жужжит», но залив не начинается. Остановите ��ашину, отключите воду, осмотрите шланг. При обнаружении изгиба или зажима распрямите шланг и уберите преп��тствие. Если шланг повреждён (порван, сильно изношен), замените его.
+                  Заливной шланг – гибкая т��убка от крана к машине. Он не должен быть перегибом, пережатием или смятием. Если на шланг наступили или он перекручен, вода не пойдёт. Симптом – машинка «жужжит», но залив не начинается. Остановите машину, отключите воду, осмотрите шланг. При обнаружении изгиба или зажима распрямите шланг и уберите препятствие. Если шланг повреждён (порван, сильно изношен), замените его.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -493,7 +488,7 @@ const Page = (props) => {
               <div className="page-container26">
                 <figure className="page-container27">
                   <img
-                    alt="впу��кной клапан"
+                    alt="впускной клапан"
                     src="5/klapan.webp"
                     loading="lazy"
                     className="page-image38230525"
@@ -502,7 +497,7 @@ const Page = (props) => {
                 </figure>
                 <p className="page-text49 vicetext">
                   {' '}
-                  Впус��ной клапан – электромагнитный клапан внутри машины, к��торый открывает и закрывает поток воды по команде платы. При его поломке клапан не открывается полностью и машина ��изически не может набрать нужное количество воды. Признаки: люк закрыт, машина включается, но вода не пост��пает или поступает очень мало, на дисплее может загореться код ош��бки набора воды. Этот узел ��е подлежит ремонту — при подозрении на его поломку нужно вызвать мастера, который заменит клапан
+                  Впус��ной клапан – электромагнитный клапан внутри машины, к��торый открывает и закрывает поток воды по команде платы. При его поломке клапан не открывается полностью и машина физически не может набрать нужное количество воды. Признаки: люк закрыт, машина включается, но вода не поступает или поступает очень мало, на дисплее может загореться код ошибки набора воды. Этот узел ��е подлежит ремонту — при подозрении на его поломку нужно вызвать мастера, который заменит клапан
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -546,7 +541,7 @@ const Page = (props) => {
                 </figure>
                 <p className="page-text49 vicetext">
                   {' '}
-                  Прессостат ��� да��чик, ��пределяющий уровень воды в баке. Если прессостат «залип» (считал бак полным) или вышел из строя, машина не начнёт зали�� воды вообще. Симптомы сх��жи с клапаном: л��к блокируется, но залива нет, появляется ошибка «набор воды» или «прессостат» на дисплее. Иногда вода может сливаться сразу, создаётся ложная сигнализация об избыточном уровне. Пользователь может прове��ить шланг прессостата на засор (и прочистить его), но обычно требуется замена датчика.
+                  Прессостат – да��чик, определяющий уровень воды в баке. Если прессостат «залип» (считал бак полным) или вышел из строя, машина не начнёт зали�� воды вообще. Симптомы схожи с клапаном: люк блокируется, но залива нет, появляется ошибка «набор воды» или «прессостат» на дисплее. Иногда вода может сливаться сразу, создаётся ложная сигнализация об избыточном уровне. Пользователь может проверить шланг прессостата на засор (и прочистить его), но обычно требуется замена датчика.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -586,11 +581,11 @@ const Page = (props) => {
                     loading="lazy"
                     className="page-image38230525"
                   />
-                  <span className="page-text48">Бл��к управления</span>
+                  <span className="page-text48">Блок управления</span>
                 </figure>
                 <p className="page-text49 vicetext">
                   {' '}
-                  Плата управле��ия — «мозг» стиральной машины. Ес��и она с��оит (из-за перепада напряжения или попа��ания влаги), команды на залив воды могут не передаваться. Призна��и: после включения стирки ма��ина блокирует люк, но воды не набирает, нередко выскакивает ��шибка набора воды. Эта неисправность требует диагностики и ремонта.
+                  Плата управле��ия — «мозг» стиральной машины. Если она сбоит (из-за перепада напряжения или попадания влаги), команды на залив воды могут не передаваться. Признаки: после включения стирки ма��ина блокирует люк, но воды не набирает, нередко выскакивает ошибка набора воды. Эта неисправность требует диагностики и ремонта.
                   <span
                     dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -744,13 +739,13 @@ const Page = (props) => {
                   />
                 </span>
                 <span className="page-text53">&quot;</span>
-                <span className="page-text54">��емCтирМаш</span>
+                <span className="page-text54">РемCтирМаш</span>
                 <span className="page-text55">&quot;</span>
                 <span className="page-text56">.</span>
                 <span className="page-text57">
                   {' '}
                   Наши специалисты быстро прие��ут к вам в желаемое вами время в
-                  любой район О��ессы и выполнят качественную диагностику ��
+                  любой район О��ессы и выполнят качественную диагностику и
                   ремонт.
                 </span>
               </p>
@@ -791,19 +786,55 @@ const Page = (props) => {
                     <strong className="page-text60">+38 (048) 123-35-21</strong>
                   </div>
                 </div>
-                <OrderButton onClick={openModal} text="Заказать мастера" />
+                <button type="button" className="page-button button">
+                  Перезвоните мне
+                </button>
               </div>
             </section>
-            <PageNavigation
-              prevPage={{
-                href: '/neotjimaet',
-                title: 'Стиральна�� машина не отжимает'
-              }}
-              nextPage={{
-                href: '/neotkrivaetsadverca',
-                title: 'У стиральной машины не открывается дверца'
-              }}
-            />
+            <div className="page-container32">
+              <div className="page-container33">
+                <div className="page-container34">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon54"
+                  >
+                    <path
+                      d="M19 468L471 19q19-19 45.5-19T562 19l92 91q19 19 19 45.5T654 201L468 385h492q27 0 45.5 18.5T1024 449v128q0 26-18.5 45T960 641H467l187 185q19 18 19 45t-19 45l-92 91q-19 19-45.5 19t-45.5-19L19 559Q0 540 0 513.5T19 468"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container35">
+                  <h4 className="page-text61">Предидущая</h4>
+                  <span className="page-text62">
+                    Стиральная машина не крутит барабан
+                  </span>
+                </div>
+              </div>
+              <div className="page-container36">
+                <div className="page-container37">
+                  <svg
+                    width="1024"
+                    height="1024"
+                    viewBox="0 0 1024 1024"
+                    className="page-icon56"
+                  >
+                    <path
+                      d="m1005 558l-452 448q-19 19-45.5 19t-45.5-19l-92-91q-19-18-19-45t19-45l186-184H64q-27 0-45.5-19T0 577V449q0-27 18.5-45.5T64 385h493L370 200q-19-19-19-45.5t19-45.5l92-91q19-18 45.5-18T553 18l452 449q19 19 19 45.5t-19 45.5"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="page-container38">
+                  <h4 className="page-text63">Следующая</h4>
+                  <span className="page-text64">
+                    Стиральная машина не нагревает воду
+                  </span>
+                </div>
+              </div>
+            </div>
             <svg
               width="330"
               xmlns="http://www.w3.org/2000/svg"
@@ -821,11 +852,63 @@ const Page = (props) => {
                 strokeDasharray="11 11"
               ></path>
             </svg>
-            <RelatedArticles />
+            <div className="page-container39">
+              <h4 className="page-text65">
+                <span>Другие статьи</span>
+                <br></br>
+              </h4>
+            </div>
+            <div className="page-container40">
+              <div className="page-container41">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823145-200h.png"
+                  loading="lazy"
+                  className="page-image38230321"
+                />
+                <span className="page-text68">
+                  Как избавиться от жирных пятен н�� одежде в домашних условиях?
+                </span>
+              </div>
+              <div className="page-container42">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823146-200h.png"
+                  loading="lazy"
+                  className="page-image38230322"
+                />
+                <span className="page-text69">
+                  Как уд��лить пятна крови с одежды без ��ледов?
+                </span>
+              </div>
+              <div className="page-container43">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823147-200h.png"
+                  loading="lazy"
+                  className="page-image38230323"
+                />
+                <span className="page-text70">
+                  Как самостоятельно удал��ть жвачку с одежды?
+                </span>
+              </div>
+              <div className="page-container44">
+                <img
+                  alt="image38230328104"
+                  src="/100x100/image%203823144-200h.png"
+                  loading="lazy"
+                  className="page-image38230324"
+                />
+                <span className="page-text71">
+                  Как правильно стирать пуховик в автоматической стиральной
+                  машине?
+                </span>
+              </div>
+            </div>
           </div>
           <div className="page-dops-info">
             <section className="page-frame1299">
-              <span className="page-text72">Вам б��дет интересно:</span>
+              <span className="page-text72">Вам будет интересно:</span>
               <div className="page-frame12981">
                 <span className="page-text73">
                   Ошибки, котор��е приводят к дорогостоящему ремонту (и как их
@@ -836,7 +919,7 @@ const Page = (props) => {
               <div className="page-frame12982">
                 <span className="page-text74">
                   Как продлить жизнь машине на 3–5 лет — простые привычки,
-                  которые сэкономят день��и
+                  которые сэкономят деньги
                 </span>
                 <div className="page-container46"></div>
               </div>
@@ -850,7 +933,7 @@ const Page = (props) => {
               <div className="page-frame12984">
                 <span className="page-text76">
                   Как сэкономить электричество и воду — реальные настройки и
-                  лайф��аки
+                  лайфхаки
                 </span>
                 <div className="page-container48"></div>
               </div>
@@ -862,7 +945,7 @@ const Page = (props) => {
               </div>
               <div className="page-frame12986">
                 <span className="page-text78">
-                  Мифы о стиралках: что ��равда, а что — вымысел?
+                  Мифы о стиралках: что правда, а что — вымысел?
                 </span>
                 <div className="page-container50"></div>
               </div>
@@ -870,7 +953,6 @@ const Page = (props) => {
           </div>
         </main>
         <MainFooter />
-        <OrderModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
       <style jsx>
         {`
@@ -881,12 +963,6 @@ const Page = (props) => {
             align-items: center;
             flex-direction: column;
             background-color: #ffffff;
-          }
-          .page-breadcrumbs-section {
-            width: 100%;
-            max-width: 1300px;
-            padding: 0 var(--dl-layout-space-unit);
-            margin: 0 auto;
           }
           .page-header {
             gap: 361px;
@@ -916,7 +992,7 @@ const Page = (props) => {
             justify-content: center;
           }
           .page-left-main-box {
-            gap: 0;
+            gap: var(--dl-layout-space-oneandhalfunits);
             width: 100%;
             height: 100%;
             display: flex;
@@ -927,20 +1003,11 @@ const Page = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-
-          .page-left-main-box > *:not(:first-child) {
-            margin-top: var(--dl-layout-space-oneandhalfunits);
-          }
-
-          .page-container11 {
-            margin-top: 0px !important;
-          }
           .page-headertextwashermachine {
             width: 100%;
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            margin-bottom: 45px;
           }
           .page-image1 {
             width: 50px;
@@ -981,7 +1048,7 @@ const Page = (props) => {
             max-width: 586px;
             min-width: 290px;
             box-shadow: 0px 0px 20px 3px #d4d4d4;
-            margin-top: 8px;
+            margin-top: var(--dl-layout-space-unit);
             align-items: flex-start;
             padding-top: var(--dl-layout-space-unit);
             border-radius: var(--dl-layout-radius-imageradius);
@@ -2428,7 +2495,7 @@ const Page = (props) => {
             }
             .page-headertextwashermachine {
               position: relative;
-              margin-top: 53px;
+              margin-top: var(--dl-layout-space-fiveunits);
             }
             .page-image1 {
               top: -149px;
@@ -2518,8 +2585,19 @@ const Page = (props) => {
               font-size: 18px;
               text-align: center;
             }
-            .page-container18 { gap: var(--dl-layout-space-halfunit); width: 280px; max-width: 280px; min-width: 280px; height: auto; min-height: 0; margin: 12px auto 16px; float: none; }
-            .page-image38230522 { width: 100%; height: 170px; object-fit: cover; min-width: 0; min-height: 0; }
+            .page-container18 {
+              gap: var(--dl-layout-space-halfunit);
+              height: 100%;
+              max-width: var(--dl-layout-size-xxlarge);
+              min-width: 100%;
+              min-height: 100%;
+              margin-bottom: 14px;
+            }
+            .page-image38230522 {
+              width: 100%;
+              min-width: 50%;
+              min-height: 50px;
+            }
             .page-container21 {
               gap: var(--dl-layout-space-halfunit);
               height: 100%;

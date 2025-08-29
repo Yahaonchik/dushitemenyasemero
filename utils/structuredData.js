@@ -205,20 +205,6 @@ export const getOrganizationData = () => {
   }
 }
 
-// Структурированные данные для обычной статьи
-export const getArticleStructuredData = (headline, description, currentUrl = '', image = '') => {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": headline,
-    "description": description,
-    "mainEntityOfPage": currentUrl,
-    "image": image ? [image] : undefined,
-    "author": { "@type": "Organization", "name": "РемСтирМаш" },
-    "publisher": { "@type": "Organization", "name": "РемСтирМаш" }
-  }
-}
-
 // Комбинированные структурированные данные для главной страницы
 export const getMainPageStructuredData = (currentUrl) => {
   const localBusiness = getLocalBusinessData(currentUrl)
@@ -227,7 +213,7 @@ export const getMainPageStructuredData = (currentUrl) => {
   return [localBusiness, organization]
 }
 
-// Структурированные данные для страниц проблем
+// ��труктурированные данные для страниц проблем
 export const getProblemPageStructuredData = (problemTitle, problemDescription, currentUrl) => {
   const serviceData = getServiceData(problemTitle, problemDescription, currentUrl)
   const localBusiness = getLocalBusinessData(currentUrl)

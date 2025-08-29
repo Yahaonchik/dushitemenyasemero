@@ -22,34 +22,19 @@ const QuestionModal = ({ isOpen, onClose }) => {
     onClose()
   }
 
-  const formatUaPhone = (input) => {
-    const digits = (input || '').replace(/\D/g, '')
-    let rest = digits
-    if (rest.startsWith('380')) rest = rest.slice(3)
-    else if (rest.startsWith('80')) rest = rest.slice(2)
-    else if (rest.startsWith('0')) rest = rest.slice(1)
-    return rest.slice(0, 9)
-  }
-
   const handleInputChange = (e) => {
     const { name, value } = e.target
-    if (name === 'phone') {
-      setFormData(prev => ({ ...prev, phone: formatUaPhone(value) }))
-    } else {
-      setFormData(prev => ({ ...prev, [name]: value }))
-    }
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = (e) => {
     if (e) e.preventDefault()
-    const rest = (formData.phone || '').replace(/\D/g, '')
-    const isValidPhone = rest.length === 9
-    const fullPhone = `+380 ${rest}`
-    if (formData.question.trim() && isValidPhone) {
-      alert(`Вопрос принят! Мастер свяжется с вами в ближайшее время.\nВопрос: ${formData.question}\nТелефон: ${fullPhone}`)
+    if (formData.question.trim() && formData.phone.trim()) {
+      // Здесь можно добавить логику отправки данных
+      alert(`Вопрос принят! Мастер свяжется с вами в ближайшее время.\nВопрос: ${formData.question}\nТелефон: ${formData.phone}`)
       closeModal()
     } else {
-      alert('Пожалуйста, введите корректный номер в формате +380XXXXXXXXX и заполните все поля')
+      alert('Пожалуйста, заполните все поля')
     }
   }
 
@@ -80,17 +65,13 @@ const QuestionModal = ({ isOpen, onClose }) => {
                   required
                 />
               </div>
-              <div className="form-group phone-input-group">
-                <span className="phone-prefix">+380</span>
+              <div className="form-group">
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  inputMode="numeric"
-                  autoComplete="tel"
-                  pattern="\d{9}"
-                  maxLength={9}
+                  placeholder="Номер телефона"
                   className="form-input"
                   required
                 />
@@ -104,7 +85,7 @@ const QuestionModal = ({ isOpen, onClose }) => {
       </div>
 
       <style jsx>{`
-        /* Стили д��я модального окна */
+        /* Стили для модального окна */
         .modal-overlay {
           position: fixed;
           top: 0;
@@ -213,19 +194,6 @@ const QuestionModal = ({ isOpen, onClose }) => {
           outline: none;
           font-family: 'Nunito', sans-serif;
         }
-        .phone-input-group { position: relative; }
-        .phone-input-group .form-input { padding-left: 74px; }
-        .phone-prefix {
-          position: absolute;
-          top: 50%;
-          left: 18px;
-          transform: translateY(-50%);
-          color: #999;
-          font-size: 18px;
-          font-family: 'Nunito', sans-serif;
-          pointer-events: none;
-        }
-        .phone-input-group:focus-within .phone-prefix { color: #000; }
 
         .form-textarea {
           padding: 20px;
@@ -303,8 +271,6 @@ const QuestionModal = ({ isOpen, onClose }) => {
             padding: 11px;
             font-size: 15px;
           }
-          .phone-input-group .form-input { padding-left: 60px; }
-          .phone-prefix { left: 14px; font-size: 15px; }
 
           .form-input::placeholder,
           .form-textarea::placeholder {
