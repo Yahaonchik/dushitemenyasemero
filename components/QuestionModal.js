@@ -3,6 +3,9 @@ import AskButton from './AskButton'
 
 const QuestionModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({ question: '', phone: '' })
+  const [status, setStatus] = useState(null)
+  const [honeypot, setHoneypot] = useState('')
+  const [sending, setSending] = useState(false)
 
   useEffect(() => {
     if (isOpen) {
@@ -10,15 +13,13 @@ const QuestionModal = ({ isOpen, onClose }) => {
     } else {
       document.body.style.overflow = 'unset'
     }
-
-    // Cleanup function
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
+    return () => { document.body.style.overflow = 'unset' }
   }, [isOpen])
 
   const closeModal = () => {
     setFormData({ question: '', phone: '' })
+    setStatus(null)
+    setHoneypot('')
     onClose()
   }
 
@@ -40,16 +41,34 @@ const QuestionModal = ({ isOpen, onClose }) => {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     if (e) e.preventDefault()
     const rest = (formData.phone || '').replace(/\D/g, '')
     const isValidPhone = rest.length === 9
     const fullPhone = `+380 ${rest}`
-    if (formData.question.trim() && isValidPhone) {
-      alert(`Вопрос принят! Мастер свяжется с вами в ближайшее время.\nВопрос: ${formData.question}\nТелефон: ${fullPhone}`)
-      closeModal()
-    } else {
-      alert('Пожалуйста, введите корректный номер в формате +380XXXXXXXXX и заполните все поля')
+    if (!formData.question.trim() || !isValidPhone) {
+      setStatus('Пожалуйста, введите корректный номер в формате +380XXXXXXXXX и заполните все поля')
+      return
+    }
+    if (sending) return
+    try {
+      setSending(true)
+      setStatus('Отправка...')
+      const res = await fetch('/api/send-notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: '-', phone: fullPhone, msg: `Вопрос мастеру: ${formData.question}`, honeypot })
+      })
+      const raw = await res.text()
+      let data = null
+      try { data = raw ? JSON.parse(raw) : null } catch {}
+      if (!res.ok) throw new Error((data && data.error) || raw || 'Ошибка')
+      setStatus('Вопрос отправлен — я получил уведомление.')
+      setTimeout(() => { closeModal() }, 900)
+    } catch (err) {
+      setStatus('Ошибка: ' + err.message)
+    } finally {
+      setSending(false)
     }
   }
 
@@ -66,7 +85,7 @@ const QuestionModal = ({ isOpen, onClose }) => {
           <div className="modal-body">
             <p className="modal-description">
               Остались вопросы? Задайте их нашему мастеру бесплатно! 
-              Укажите ваш вопрос и номер телефона. Наш спец��алист свяжется с вами и даст подробную консул��тацию.
+              Укажите ваш вопрос и номер телефона. Наш специалист свяжется с вами и даст подробную консультацию.
             </p>
             <form onSubmit={handleSubmit} className="question-form">
               <div className="form-group">
@@ -95,226 +114,40 @@ const QuestionModal = ({ isOpen, onClose }) => {
                   required
                 />
               </div>
+              <input className="honeypot-input" tabIndex="-1" autoComplete="off" value={honeypot} onChange={e=>setHoneypot(e.target.value)} />
               <div className="submit-wrapper">
                 <AskButton onClick={handleSubmit} variant="primary" />
               </div>
+              <div className="status-message">{status}</div>
             </form>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        /* Стили д��я модального окна */
-        .modal-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          z-index: 1000;
-          padding-left: 0;
-        }
-
-        .modal-content {
-          background: white;
-          width: 33.33%;
-          height: 100%;
-          padding: 40px;
-          box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
-          display: flex;
-          flex-direction: column;
-          animation: slideInLeft 0.3s ease-out;
-        }
-
-        @keyframes slideInLeft {
-          from {
-            transform: translateX(-100%);
-          }
-          to {
-            transform: translateX(0);
-          }
-        }
-
-        .modal-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 30px;
-          border-bottom: 1px solid #eee;
-          padding-bottom: 20px;
-        }
-
-        .modal-header h2 {
-          margin: 0;
-          font-size: 28px;
-          font-weight: bold;
-          color: #333;
-          font-family: 'Nunito', sans-serif;
-        }
-
-        .modal-close {
-          background: none;
-          border: none;
-          font-size: 30px;
-          cursor: pointer;
-          color: #999;
-          padding: 0;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          transition: all 0.2s ease;
-        }
-
-        .modal-close:hover {
-          background-color: #f5f5f5;
-          color: #333;
-        }
-
-        .modal-body {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .modal-description {
-          font-size: 16px;
-          line-height: 1.6;
-          color: #666;
-          margin-bottom: 40px;
-          font-family: 'Nunito', sans-serif;
-        }
-
-        .question-form {
-          display: flex;
-          flex-direction: column;
-          gap: 25px;
-          flex: 1;
-        }
-
-        .form-group {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .form-input {
-          padding: 20px;
-          font-size: 18px;
-          border: 2px solid #ddd;
-          border-radius: 8px;
-          background-color: #f9f9f9;
-          transition: all 0.3s ease;
-          outline: none;
-          font-family: 'Nunito', sans-serif;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: flex-start; align-items: center; z-index: 1000; padding-left: 0; }
+        .modal-content { background: white; width: 33.33%; height: 100%; padding: 40px; box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; animation: slideInLeft 0.3s ease-out; }
+        @keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .modal-header h2 { margin: 0; font-size: 28px; font-weight: bold; color: #333; font-family: 'Nunito', sans-serif; }
+        .modal-close { background: none; border: none; font-size: 30px; cursor: pointer; color: #999; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s ease; }
+        .modal-close:hover { background-color: #f5f5f5; color: #333; }
+        .modal-body { flex: 1; display: flex; flex-direction: column; }
+        .modal-description { font-size: 16px; line-height: 1.6; color: #666; margin-bottom: 40px; font-family: 'Nunito', sans-serif; }
+        .question-form { display: flex; flex-direction: column; gap: 25px; flex: 1; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-input { padding: 20px; font-size: 18px; border: 2px solid #ddd; border-radius: 8px; background-color: #f9f9f9; transition: all 0.3s ease; outline: none; font-family: 'Nunito', sans-serif; }
         .phone-input-group { position: relative; }
         .phone-input-group .form-input { padding-left: 74px; }
-        .phone-prefix {
-          position: absolute;
-          top: 50%;
-          left: 18px;
-          transform: translateY(-50%);
-          color: #999;
-          font-size: 18px;
-          font-family: 'Nunito', sans-serif;
-          pointer-events: none;
-        }
+        .phone-prefix { position: absolute; top: 50%; left: 18px; transform: translateY(-50%); color: #999; font-size: 18px; font-family: 'Nunito', sans-serif; pointer-events: none; }
         .phone-input-group:focus-within .phone-prefix { color: #000; }
-
-        .form-textarea {
-          padding: 20px;
-          font-size: 18px;
-          border: 2px solid #ddd;
-          border-radius: 8px;
-          background-color: #f9f9f9;
-          transition: all 0.3s ease;
-          outline: none;
-          resize: none;
-          min-height: 120px;
-          font-family: 'Nunito', sans-serif;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-          border-color: #4EC8ED;
-          background-color: white;
-          box-shadow: 0 0 0 3px rgba(78, 200, 237, 0.1);
-        }
-
-        .form-input::placeholder,
-        .form-textarea::placeholder {
-          color: #999;
-          font-size: 16px;
-          font-family: 'Nunito', sans-serif;
-        }
-
-        .submit-wrapper {
-          margin-top: 20px;
-          display: flex;
-          justify-content: center;
-        }
-
-        /* Адаптивность для мобильных устройств */
-        @media (max-width: 768px) {
-          .modal-content {
-            width: 90%;
-            height: auto;
-            max-height: 90%;
-            margin: 16px;
-            border-radius: 12px;
-            animation: slideInUp 0.3s ease-out;
-          }
-
-          @keyframes slideInUp {
-            from {
-              transform: translateY(100%);
-            }
-            to {
-              transform: translateY(0);
-            }
-          }
-
-          .modal-overlay {
-            justify-content: center;
-            padding: 16px;
-          }
-
-          .modal-header h2 {
-            font-size: 23px;
-          }
-
-          .modal-description {
-            font-size: 15px;
-            margin-bottom: 36px;
-          }
-
-          .question-form {
-            gap: 21px;
-          }
-
-          .form-input,
-          .form-textarea {
-            padding: 11px;
-            font-size: 15px;
-          }
-          .phone-input-group .form-input { padding-left: 60px; }
-          .phone-prefix { left: 14px; font-size: 15px; }
-
-          .form-input::placeholder,
-          .form-textarea::placeholder {
-            font-size: 15px;
-          }
-
-          .submit-wrapper {
-            margin-top: 16px;
-          }
-        }
+        .form-textarea { padding: 20px; font-size: 18px; border: 2px solid #ddd; border-radius: 8px; background-color: #f9f9f9; transition: all 0.3s ease; outline: none; resize: none; min-height: 120px; font-family: 'Nunito', sans-serif; }
+        .form-input:focus, .form-textarea:focus { border-color: #4EC8ED; background-color: white; box-shadow: 0 0 0 3px rgba(78, 200, 237, 0.1); }
+        .form-input::placeholder, .form-textarea::placeholder { color: #999; font-size: 16px; font-family: 'Nunito', sans-serif; }
+        .submit-wrapper { margin-top: 20px; display: flex; justify-content: center; }
+        .honeypot-input { display: none; }
+        .status-message { margin-top: 8px; text-align: center; font-family: 'Nunito', sans-serif; color: #333; }
+        @media (max-width: 768px) { .modal-content { width: 90%; height: auto; max-height: 90%; margin: 16px; border-radius: 12px; animation: slideInUp 0.3s ease-out; } @keyframes slideInUp { from { transform: translateY(100%); } to { transform: translateY(0); } } .modal-overlay { justify-content: center; padding: 16px; } .modal-header h2 { font-size: 23px; } .modal-description { font-size: 15px; margin-bottom: 36px; } .question-form { gap: 21px; } .form-input, .form-textarea { padding: 11px; font-size: 15px; } .phone-input-group .form-input { padding-left: 60px; } .phone-prefix { left: 14px; font-size: 15px; } .form-input::placeholder, .form-textarea::placeholder { font-size: 15px; } .submit-wrapper { margin-top: 16px; } }
       `}</style>
     </>
   )
