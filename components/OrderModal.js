@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import OrderButton from './OrderButton'
 
-const OrderModal = ({ isOpen, onClose }) => {
+const OrderModal = ({ isOpen, onClose, successVariant = 'screenAuto' }) => {
   const [formData, setFormData] = useState({ name: '', phone: '' })
   const [status, setStatus] = useState(null)
   const [honeypot, setHoneypot] = useState('')
   const [sending, setSending] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [toastVisible, setToastVisible] = useState(false)
+  const [bannerVisible, setBannerVisible] = useState(false)
 
   useEffect(() => {
     if (isOpen) {
@@ -23,6 +26,9 @@ const OrderModal = ({ isOpen, onClose }) => {
     setFormData({ name: '', phone: '' })
     setStatus(null)
     setHoneypot('')
+    setSuccess(false)
+    setToastVisible(false)
+    setBannerVisible(false)
     onClose()
   }
 
@@ -41,6 +47,19 @@ const OrderModal = ({ isOpen, onClose }) => {
       setFormData(prev => ({ ...prev, phone: formatUaPhone(value) }))
     } else {
       setFormData(prev => ({ ...prev, [name]: value }))
+    }
+  }
+
+  const getNextCycleVariant = () => {
+    try {
+      const key = 'orderModalCycle'
+      const i = parseInt(localStorage.getItem(key) || '0', 10) || 0
+      const variants = ['toast', 'banner', 'screenAuto', 'screen']
+      const v = variants[i % variants.length]
+      localStorage.setItem(key, String((i + 1) % variants.length))
+      return v
+    } catch {
+      return 'screen'
     }
   }
 
@@ -66,8 +85,20 @@ const OrderModal = ({ isOpen, onClose }) => {
       let data = null
       try { data = raw ? JSON.parse(raw) : null } catch {}
       if (!res.ok) throw new Error((data && data.error) || raw || 'Ошибка')
-      setStatus('Заявка отправлена — я получил уведомление.')
-      setTimeout(() => { closeModal() }, 900)
+      setStatus(null)
+      const v = successVariant === 'cycle' ? getNextCycleVariant() : successVariant
+      if (v === 'toast') {
+        setToastVisible(true)
+        setTimeout(() => { setToastVisible(false); closeModal() }, 3500)
+      } else if (v === 'banner') {
+        setBannerVisible(true)
+        setTimeout(() => { setBannerVisible(false); closeModal() }, 4000)
+      } else if (v === 'screenAuto') {
+        setSuccess(true)
+        setTimeout(() => { closeModal() }, 5000)
+      } else {
+        setSuccess(true)
+      }
     } catch (err) {
       setStatus('Ошибка: ' + err.message)
     } finally {
@@ -82,47 +113,68 @@ const OrderModal = ({ isOpen, onClose }) => {
       <div className="modal-overlay" onClick={closeModal}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
-            <h2>Оформление услуги</h2>
+            <h2>Оформление ус��уги</h2>
             <button className="modal-close" onClick={closeModal}>×</button>
           </div>
+          {bannerVisible && (
+            <div className="success-banner">
+              <div className="banner-text">Спасибо за обращение! Мы свяжемся с вами в ближайшее время.</div>
+            </div>
+          )}
           <div className="modal-body">
-            <p className="modal-description">
-              Ремонт стиральных машин. Для оформления услуги достаточно указать имя и номер телефона. 
-              Наш менеджер свяжется с вами в ближайшее время для уточнения условий.
-            </p>
-            <form onSubmit={handleSubmit} className="order-form">
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Ваше имя"
-                  className="form-input"
-                  required
-                />
+            {success ? (
+              <div className="success-view">
+                <div className="success-icon">✓</div>
+                <h3 className="success-title">Спасибо за обращение!</h3>
+                <p className="success-text">Мы получили вашу заявку. Наш менеджер свяжется с вами в ближайшее время.</p>
               </div>
-              <div className="form-group phone-input-group">
-                <span className="phone-prefix">+380</span>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  inputMode="numeric"
-                  autoComplete="tel"
-                  pattern="\d{9}"
-                  maxLength={9}
-                  className="form-input"
-                  required
-                />
+            ) : (
+              <>
+                <p className="modal-description">
+                  Ремонт стиральных машин. Для оформления услуги достаточно указать имя и номер телефона.
+                  Наш менеджер свяжется с вами в ближайшее время для уточнения условий.
+                </p>
+                <form onSubmit={handleSubmit} className="order-form">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Ваше имя"
+                      className="form-input"
+                      required
+                    />
+                  </div>
+                  <div className="form-group phone-input-group">
+                    <span className="phone-prefix">+380</span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      inputMode="numeric"
+                      autoComplete="tel"
+                      pattern="\d{9}"
+                      maxLength={9}
+                      className="form-input"
+                      required
+                    />
+                  </div>
+                  <input className="honeypot-input" tabIndex="-1" autoComplete="off" value={honeypot} onChange={e=>setHoneypot(e.target.value)} />
+                  <div className="submit-wrapper">
+                    <OrderButton onClick={handleSubmit} variant="primary" />
+                  </div>
+                  <div className="status-message">{status}</div>
+                </form>
+              </>
+            )}
+            {toastVisible && (
+              <div className="success-toast">
+                <div className="toast-icon">✓</div>
+                <div className="toast-text">Заявка принята. Перезвоним в течение 10–15 минут.</div>
               </div>
-              <input className="honeypot-input" tabIndex="-1" autoComplete="off" value={honeypot} onChange={e=>setHoneypot(e.target.value)} />
-              <div className="submit-wrapper">
-                <OrderButton onClick={handleSubmit} variant="primary" />
-              </div>
-              <div className="status-message">{status}</div>
-            </form>
+            )}
           </div>
         </div>
       </div>
@@ -149,7 +201,19 @@ const OrderModal = ({ isOpen, onClose }) => {
         .submit-wrapper { margin-top: 20px; display: flex; justify-content: center; }
         .honeypot-input { display: none; }
         .status-message { margin-top: 8px; text-align: center; font-family: 'Nunito', sans-serif; color: #333; }
-        @media (max-width: 768px) { .modal-content { width: 90%; height: auto; max-height: 90%; margin: 16px; border-radius: 12px; animation: slideInUp 0.3s ease-out; } @keyframes slideInUp { from { transform: translateY(100%); } to { transform: translateY(0); } } .modal-overlay { justify-content: center; padding: 16px; } .modal-header h2 { font-size: 23px; } .modal-description { font-size: 15px; margin-bottom: 36px; } .order-form { gap: 21px; } .form-input { padding: 11px; font-size: 15px; } .phone-input-group .form-input { padding-left: 60px; } .phone-prefix { left: 14px; font-size: 15px; } .form-input::placeholder { font-size: 15px; } .submit-wrapper { margin-top: 16px; } }
+        .success-view { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .success-icon { width: 64px; height: 64px; border-radius: 50%; background: #E6F9FE; color: #4EC8ED; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 16px; box-shadow: 0 0 0 3px rgba(78,200,237,0.12) inset; }
+        .success-title { margin: 0 0 8px; font-size: 22px; font-weight: 700; color: #333; font-family: 'Nunito', sans-serif; }
+        .success-text { margin: 0 0 20px; font-size: 16px; color: #666; line-height: 1.5; font-family: 'Nunito', sans-serif; }
+        .success-button { color: #fff; font-size: 16px; font-family: 'Spectral'; font-weight: 500; border: none; border-radius: 8px; letter-spacing: 1px; background-color: rgb(40, 40, 40); cursor: pointer; transition: all 0.3s ease; height: 55px; padding: 0 22px; box-shadow: 5px 5px 10px rgba(43,43,43,.68); }
+        .success-button:hover { box-shadow: 5px 5px 15px rgba(43,43,43,.8); transform: translateY(-2px); background-color: #87ceeb; }
+        .success-button:active { transform: translateY(0); box-shadow: 0 0 8px #87ceeb, 3px 3px 8px rgba(43,43,43,.9); }
+        .success-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #fff; color: #333; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.15); padding: 12px 16px; display: flex; align-items: center; gap: 10px; z-index: 1100; border: 1px solid #eaeaea; }
+        .toast-icon { width: 28px; height: 28px; border-radius: 50%; background: #E6F9FE; color: #4EC8ED; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 0 0 2px rgba(78,200,237,0.12) inset; }
+        .toast-text { font-size: 14px; font-family: 'Nunito', sans-serif; }
+        .success-banner { position: fixed; top: 0; left: 0; right: 0; background: #E6F9FE; color: #1b1b1b; z-index: 1100; padding: 10px 16px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+        .success-banner .banner-text { text-align: center; font-family: 'Nunito', sans-serif; font-size: 15px; }
+        @media (max-width: 768px) { .modal-content { width: 90%; height: auto; max-height: 90%; margin: 16px; border-radius: 12px; animation: slideInUp 0.3s ease-out; } @keyframes slideInUp { from { transform: translateY(100%); } to { transform: translateY(0); } } .modal-overlay { justify-content: center; padding: 16px; } .modal-header h2 { font-size: 23px; } .modal-description { font-size: 15px; margin-bottom: 36px; } .order-form { gap: 21px; } .form-input { padding: 11px; font-size: 15px; } .phone-input-group .form-input { padding-left: 60px; } .phone-prefix { left: 14px; font-size: 15px; } .form-input::placeholder { font-size: 15px; } .submit-wrapper { margin-top: 16px; } .success-banner .banner-text { font-size: 14px; } .success-toast { bottom: 16px; padding: 10px 14px; } .toast-text { font-size: 13px; } }
       `}</style>
     </>
   )

@@ -127,14 +127,9 @@ const Vikup = (props) => {
             </div>
             <div className="page1-container15">
               <div className="page1-container16">
-                <img
-                  alt="image"
-                  src="/ICONS/23222.svg"
-                  loading="lazy"
-                  className="page1-image3"
-                />
+                <img alt="image" src="/ICONS/23222.svg" loading="eager" className="page1-image3" />
                 <div className="page1-container17">
-                  <h3 className="page1-text29">Экономия времени</h3>
+                  <h3 className="page1-text29">Вместо мусора – польза</h3>
                   <svg
                     width="100%"
                     xmlns="http://www.w3.org/2000/svg"
@@ -166,19 +161,14 @@ const Vikup = (props) => {
                     ></path>
                   </svg>
                   <p className="page1-text30">
-                    Мы сами приезжаем, аккуратно выносим
+                    Мы выкупим вашу машинку �� используем её на благо другим
                   </p>
                 </div>
               </div>
               <div className="page1-container18">
-                <img
-                  alt="image"
-                  src="/ICONS/res3.svg"
-                  loading="lazy"
-                  className="page1-image4"
-                />
+                <img alt="image" src="/ICONS/res3.svg" loading="eager" className="page1-image4" />
                 <div className="page1-container19">
-                  <h3 className="page1-text31">Вместо мусора – польза</h3>
+                  <h3 className="page1-text31">Экономия времени</h3>
                   <svg
                     width="100%"
                     xmlns="http://www.w3.org/2000/svg"
@@ -210,17 +200,12 @@ const Vikup = (props) => {
                     ></path>
                   </svg>
                   <p className="page1-text32">
-                    Мы выкупим вашу машинку и используем её на благо другим
+                    Мы сами приезжаем, аккуратно выносим
                   </p>
                 </div>
               </div>
               <div className="page1-container20">
-                <img
-                  alt="image"
-                  src="/ICONS/zamena1.svg"
-                  loading="lazy"
-                  className="page1-image5"
-                />
+                <img alt="image" src="/ICONS/zamena1.svg" loading="eager" className="page1-image5" />
                 <div className="page1-container21">
                   <h3 className="page1-text33">
                     <span>Оплата наличными</span>
@@ -448,15 +433,11 @@ const Vikup = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <div className="page1-container26" onClick={openSellModal}>
+              <div className="page1-container26 clickable-button" onClick={openSellModal}>
                 <div className="page1-container27">
                   <span className="page1-text43">Продать</span>
                 </div>
-                <img
-                  alt="image"
-                  src="/ICONS/29.svg"
-                  className="page1-image6"
-                />
+                <img alt="image" src="/ICONS/29.svg" loading="eager" className="page1-image6" />
               </div>
             </div>
           </div>
@@ -626,15 +607,11 @@ const Vikup = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <div className="page1-container30" onClick={openSellModal}>
+              <div className="page1-container30 clickable-button" onClick={openSellModal}>
                 <div className="page1-container31">
                   <span className="page1-text46">Продать</span>
                 </div>
-                <img
-                  alt="image"
-                  src="/ICONS/29.svg"
-                  className="page1-image7"
-                />
+                <img alt="image" src="/ICONS/29.svg" loading="eager" className="page1-image7" />
               </div>
             </div>
           </div>
@@ -672,15 +649,11 @@ const Vikup = (props) => {
                   strokeDasharray="11 11"
                 ></path>
               </svg>
-              <div className="page1-container34" onClick={openSellModal}>
+              <div className="page1-container34 clickable-button" onClick={openSellModal}>
                 <div className="page1-container35">
                   <span className="page1-text49">Продать</span>
                 </div>
-                <img
-                  alt="image"
-                  src="/ICONS/29.svg"
-                  className="page1-image8"
-                />
+                <img alt="image" src="/ICONS/29.svg" loading="eager" className="page1-image8" />
               </div>
             </div>
           </div>
@@ -1148,7 +1121,7 @@ const Vikup = (props) => {
           .page1-container24 {
             gap: var(--dl-layout-space-unit);
             width: 100%;
-            height: 106px;
+            height: 121px;
             display: flex;
             max-width: 300px;
             min-width: 300px;
@@ -1277,7 +1250,7 @@ const Vikup = (props) => {
           .page1-container28 {
             gap: var(--dl-layout-space-unit);
             width: 100%;
-            height: 106px;
+            height: 121px;
             display: flex;
             max-width: 300px;
             min-width: 300px;
@@ -1350,7 +1323,7 @@ const Vikup = (props) => {
           .page1-container32 {
             gap: var(--dl-layout-space-unit);
             width: 100%;
-            height: 106px;
+            height: 121px;
             display: flex;
             max-width: 300px;
             min-width: 300px;
@@ -1499,7 +1472,7 @@ const Vikup = (props) => {
             .page1-container15 {
               gap: calc(var(--dl-layout-space-unit) - 6px);
               max-width: 290px;
-              padding-left: var(--dl-layout-space-oneandhalfunits);
+              padding-left: var(--dl-layout-space-unit);
               padding-right: 0px;
               flex-direction: column;
             }
@@ -1509,6 +1482,9 @@ const Vikup = (props) => {
             }
             .page1-text30 {
               font-size: 14px;
+              font-style: italic;
+              font-family: 'Nunito';
+              font-weight: 300;
             }
             .page1-text31 {
               font-size: 14px;
@@ -1516,6 +1492,11 @@ const Vikup = (props) => {
             }
             .page1-text32 {
               font-size: 14px;
+              font-style: italic;
+              font-family: 'Nunito';
+              font-weight: 300;
+              max-width: 140px;
+              line-height: 1.2;
             }
             .page1-text33 {
               font-size: 14px;
@@ -1527,6 +1508,9 @@ const Vikup = (props) => {
             .page1-text31 {
               font-style: normal;
               font-weight: 500;
+            }
+            .page1-container25, .page1-container29, .page1-container33 {
+              gap: var(--dl-layout-space-halfunit);
             }
           }
           @media (max-width: 767px) {
@@ -1569,7 +1553,7 @@ const Vikup = (props) => {
             }
             .page1-container13 {
               width: 100%;
-              margin-top: 20px;
+              margin-top: 35px;
             }
             .page1-text10 {
               font-size: 21px;
@@ -1584,7 +1568,7 @@ const Vikup = (props) => {
             }
             .page1-image2 {
               width: 100%;
-              height: auto;
+              height: 240px;
             }
             .page1-container14 {
               margin-top: 0px;
@@ -1608,29 +1592,57 @@ const Vikup = (props) => {
             }
             .page1-container16 {
               gap: calc(var(--dl-layout-space-twounits) - 6px);
+              padding-left: var(--dl-layout-space-halfunit);
+              justify-content: flex-start;
+            }
+            .page1-container17, .page1-container19, .page1-container21 {
+              max-width: 140px;
+              min-height: 140px;
             }
             .page1-container18 {
               gap: calc(var(--dl-layout-space-twounits) - 6px);
+              padding-left: var(--dl-layout-space-halfunit);
+              justify-content: flex-start;
             }
             .page1-container20 {
               gap: calc(var(--dl-layout-space-twounits) - 6px);
+              padding-left: var(--dl-layout-space-halfunit);
+              justify-content: flex-start;
             }
             .page1-text29 {
-              font-size: 1em;
+              font-size: 14px;
+              max-width: 140px;
+              line-height: 1.2;
             }
             .page1-text30 {
               min-height: auto;
+              max-width: 140px;
+              line-height: 1.2;
             }
             .page1-text31 {
+              font-size: 14px;
               font-style: normal;
               font-weight: 500;
+              max-width: 140px;
+              line-height: 1.2;
+            }
+            .page1-text33 {
+              font-size: 14px;
+              font-weight: 500;
+              max-width: 140px;
+              line-height: 1.2;
             }
             .page1-image5 {
               width: 68px;
               height: 36px;
             }
             .page1-text36 {
-              max-width: 165px;
+              max-width: 140px;
+              line-height: 1.2;
+            }
+            .page1-text32 {
+              max-width: 140px;
+              line-height: 1.2;
             }
             .page1-text37 {
               width: auto;
@@ -1648,6 +1660,7 @@ const Vikup = (props) => {
             .page1-container24 {
               height: auto;
               min-width: 100%;
+              min-height: 121px;
               padding-top: var(--dl-layout-space-unit);
               padding-bottom: var(--dl-layout-space-unit);
             }
@@ -1668,6 +1681,7 @@ const Vikup = (props) => {
             .page1-container28 {
               height: auto;
               min-width: 100%;
+              min-height: 121px;
               padding-top: var(--dl-layout-space-unit);
               padding-bottom: var(--dl-layout-space-unit);
             }
@@ -1689,6 +1703,7 @@ const Vikup = (props) => {
             .page1-container32 {
               height: auto;
               min-width: 100%;
+              min-height: 121px;
               padding-top: var(--dl-layout-space-unit);
               padding-bottom: var(--dl-layout-space-unit);
             }
@@ -1708,6 +1723,13 @@ const Vikup = (props) => {
               font-weight: 400;
             }
           }
+          /* Анимация как у кнопок "Вызвать мастера" */
+          .clickable-button { cursor: pointer; transition: all 0.2s ease; border-radius: 4px; padding: 4px; }
+          .clickable-button:hover { transform: translateY(-2px); }
+          .clickable-button:hover span { color: #3A9BC1; }
+          .clickable-button:hover img { transform: rotate(15deg); filter: brightness(1.2); }
+          .clickable-button img { transition: transform 0.2s ease, filter 0.2s ease; }
+          .clickable-button:active { transform: translateY(0); }
         `}
       </style>
     </>

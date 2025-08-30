@@ -7,6 +7,7 @@ const ReviewModal = ({ isOpen, onClose }) => {
   const [status, setStatus] = useState(null)
   const [honeypot, setHoneypot] = useState('')
   const [sending, setSending] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   useEffect(() => {
     if (isOpen) {
@@ -22,6 +23,7 @@ const ReviewModal = ({ isOpen, onClose }) => {
     setHoverRating(0)
     setStatus(null)
     setHoneypot('')
+    setSuccess(false)
     onClose()
   }
 
@@ -66,8 +68,9 @@ const ReviewModal = ({ isOpen, onClose }) => {
       let data = null
       try { data = raw ? JSON.parse(raw) : null } catch {}
       if (!res.ok) throw new Error((data && data.error) || raw || 'Ошибка')
-      setStatus('Отзыв отправлен — спасибо!')
-      setTimeout(() => { closeModal() }, 900)
+      setStatus(null)
+      setSuccess(true)
+      setTimeout(() => { closeModal() }, 5000)
     } catch (err) {
       setStatus('Ошибка: ' + err.message)
     } finally {
@@ -90,70 +93,80 @@ const ReviewModal = ({ isOpen, onClose }) => {
             <button className="modal-close" onClick={closeModal}>×</button>
           </div>
           <div className="modal-body">
-            <p className="modal-description">
-              Поделитесь своим опытом! Ваш отзыв поможет другим клиентам сделать правильный выбор. 
-              Расскажите о качестве ремонта и уровне сервиса.
-            </p>
-            <form onSubmit={handleSubmit} className="review-form">
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Ва��е имя"
-                  className="form-input"
-                  required
-                />
+            {success ? (
+              <div className="success-view">
+                <div className="success-icon">✓</div>
+                <h3 className="success-title">Спасибо за отзыв!</h3>
+                <p className="success-text">Мы получили ваш отзыв. Он появится на сайте после модерации.</p>
               </div>
-              <div className="form-group phone-input-group">
-                <span className="phone-prefix">+380</span>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  inputMode="numeric"
-                  autoComplete="tel"
-                  pattern="\d{9}"
-                  maxLength={9}
-                  className="form-input"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label className="rating-label">Оценка:</label>
-                <div className="star-rating">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span
-                      key={star}
-                      className={`star ${star <= (hoverRating || formData.rating) ? 'filled' : ''}`}
-                      onClick={() => handleStarClick(star)}
-                      onMouseEnter={() => handleStarHover(star)}
-                      onMouseLeave={handleStarLeave}
-                    >
-                      ★
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="form-group">
-                <textarea
-                  name="review"
-                  value={formData.review}
-                  onChange={handleInputChange}
-                  placeholder="Напишите ваш отзыв"
-                  className="form-textarea"
-                  rows="4"
-                  required
-                />
-              </div>
-              <input className="honeypot-input" tabIndex="-1" autoComplete="off" value={honeypot} onChange={e=>setHoneypot(e.target.value)} />
-              <div className="submit-wrapper">
-                <OrderButton onClick={handleSubmit} variant="primary" text="Добавить отзыв" />
-              </div>
-              <div className="status-message">{status}</div>
-            </form>
+            ) : (
+              <>
+                <p className="modal-description">
+                  Поделитесь своим опытом! Ваш отзыв поможет другим клиентам сделать правильный выбор.
+                  Расскажите о качестве ремонта и уровне сервиса.
+                </p>
+                <form onSubmit={handleSubmit} className="review-form">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Ваше имя"
+                      className="form-input"
+                      required
+                    />
+                  </div>
+                  <div className="form-group phone-input-group">
+                    <span className="phone-prefix">+380</span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      inputMode="numeric"
+                      autoComplete="tel"
+                      pattern="\d{9}"
+                      maxLength={9}
+                      className="form-input"
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="rating-label">Оценка:</label>
+                    <div className="star-rating">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <span
+                          key={star}
+                          className={`star ${star <= (hoverRating || formData.rating) ? 'filled' : ''}`}
+                          onClick={() => handleStarClick(star)}
+                          onMouseEnter={() => handleStarHover(star)}
+                          onMouseLeave={handleStarLeave}
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <textarea
+                      name="review"
+                      value={formData.review}
+                      onChange={handleInputChange}
+                      placeholder="Напишите ваш отзыв"
+                      className="form-textarea"
+                      rows="4"
+                      required
+                    />
+                  </div>
+                  <input className="honeypot-input" tabIndex="-1" autoComplete="off" value={honeypot} onChange={e=>setHoneypot(e.target.value)} />
+                  <div className="submit-wrapper">
+                    <OrderButton onClick={handleSubmit} variant="primary" text="Добавить отзыв" />
+                  </div>
+                  <div className="status-message">{status}</div>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -186,6 +199,13 @@ const ReviewModal = ({ isOpen, onClose }) => {
         .submit-wrapper { margin-top: 20px; display: flex; justify-content: center; }
         .honeypot-input { display: none; }
         .status-message { margin-top: 8px; text-align: center; font-family: 'Nunito', sans-serif; color: #333; }
+        .success-view { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .success-icon { width: 64px; height: 64px; border-radius: 50%; background: #E6F9FE; color: #4EC8ED; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 16px; box-shadow: 0 0 0 3px rgba(78,200,237,0.12) inset; }
+        .success-title { margin: 0 0 8px; font-size: 22px; font-weight: 700; color: #333; font-family: 'Nunito', sans-serif; }
+        .success-text { margin: 0 0 20px; font-size: 16px; color: #666; line-height: 1.5; font-family: 'Nunito', sans-serif; }
+        .success-button { color: #fff; font-size: 16px; font-family: 'Spectral'; font-weight: 500; border: none; border-radius: 8px; letter-spacing: 1px; background-color: rgb(40, 40, 40); cursor: pointer; transition: all 0.3s ease; height: 55px; padding: 0 22px; box-shadow: 5px 5px 10px rgba(43,43,43,.68); }
+        .success-button:hover { box-shadow: 5px 5px 15px rgba(43,43,43,.8); transform: translateY(-2px); background-color: #87ceeb; }
+        .success-button:active { transform: translateY(0); box-shadow: 0 0 8px #87ceeb, 3px 3px 8px rgba(43,43,43,.9); }
         @media (max-width: 768px) { .modal-content { width: 90%; height: auto; max-height: 90%; margin: 16px; padding: 20px; border-radius: 12px; animation: slideInUp 0.3s ease-out; } @keyframes slideInUp { from { transform: translateY(100%); } to { transform: translateY(0); } } .modal-overlay { justify-content: center; padding: 10px; } .modal-header { margin-bottom: 15px; padding-bottom: 15px; } .modal-header h2 { font-size: 23px; } .modal-description { font-size: 15px; margin-bottom: 15px; } .review-form { gap: 12px; } .form-input, .form-textarea { padding: 11px; font-size: 15px; } .phone-input-group .form-input { padding-left: 60px; } .phone-prefix { left: 14px; font-size: 15px; } .form-input::placeholder, .form-textarea::placeholder { font-size: 15px; } .submit-wrapper { margin-top: 10px; } }
       `}</style>
     </>

@@ -10,6 +10,7 @@ import Blue1 from '../components/blue1'
 import Header from '../components/Header'
 import MainFooter from '../components/MainFooter'
 import OrderModal from '../components/OrderModal'
+import Image from 'next/image'
 import QuestionModal from '../components/QuestionModal'
 import OrderButton from '../components/OrderButton'
 import AskButton from '../components/AskButton'
@@ -240,12 +241,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Стиральная машина не ��ключается"
-                  src="/problems 2/51-300h.webp"
-                  loading="eager"
-                  className="frame1196-image19"
-                />
+                <Image alt="Стиральная машина не ��ключается" src="/problems 2/51-300h.webp" width={149} height={215} className="frame1196-image19" loading="eager" />
               </a>
             </Link>
             <Link href="/zavisaetnaprogramme">
@@ -266,18 +262,13 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Стиральная машина зависает на программе"
-                  src="/problems 2/61-300h.webp"
-                  loading="eager"
-                  className="frame1196-image20"
-                />
+                <Image alt="Стиральная машина зависает на программе" src="/problems 2/61-300h.webp" width={149} height={215} className="frame1196-image20" loading="eager" />
               </a>
             </Link>
             <Link href="/neotjimaet">
               <a className="frame1196-container119">
                 <h3 className="frame1196-text118">
-                  Ст��ральная машина не отжимает
+                  Ст��ральна�� машина не отжимает
                 </h3>
                 <div className="frame1196-arrow16">
                   <svg
@@ -292,12 +283,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Стиральная м��шина не ����тжима��т"
-                  src="/problems 2/71-300h.webp"
-                  loading="eager"
-                  className="frame1196-image21"
-                />
+                <Image alt="Стиральная м��шина не ����тжима��т" src="/problems 2/71-300h.webp" width={149} height={215} className="frame1196-image21" loading="eager" />
               </a>
             </Link>
             <Link href="/nenabiraetvodu">
@@ -318,12 +304,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Стиральная машина не набирает воду"
-                  src="/problems/8-300h.webp"
-                  loading="eager"
-                  className="frame1196-image22"
-                />
+                <Image alt="Стиральная машина не набирает воду" src="/problems/8-300h.webp" width={149} height={215} className="frame1196-image22" loading="eager" />
               </a>
             </Link>
             <Link href="/neotkrivaetsadverca">
@@ -344,12 +325,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Не отк��ывается д��ерца стиральной машины"
-                  src="/problems 2/91-300h.webp"
-                  loading="eager"
-                  className="frame1196-image23"
-                />
+                <Image alt="Не отк����ывается д��ерца стиральной машины" src="/problems 2/91-300h.webp" width={149} height={215} className="frame1196-image23" loading="eager" />
               </a>
             </Link>
             <a href="/nekrutitbaraban" className="frame1196-container122">
@@ -369,12 +345,7 @@ const Frame1196 = (props) => {
                   ></path>
                 </svg>
               </div>
-              <img
-                alt="С����иральная машина не крут��т бараба��"
-                src="/problems/10-300h.webp"
-                loading="eager"
-                className="frame1196-image24"
-              />
+              <Image alt="С����иральная машина не крут��т бараба��" src="/problems/10-300h.webp" width={149} height={215} className="frame1196-image24" loading="eager" />
             </a>
           </article>
         </section>
@@ -767,7 +738,7 @@ const Frame1196 = (props) => {
                   <span className="frame1196-text147">2</span>
                 </div>
                 <span className="frame1196-text148">
-                  Д���агностика �����борудования (при ремонте)
+                  Д���агностика �������борудования (при ремонте)
                 </span>
               </div>
               <div className="frame1196-container139">
@@ -1816,7 +1787,7 @@ const Frame1196 = (props) => {
               </div>
               <div className="item">
                 <img
-                  alt="Р��монт стиральных машин Ardo в О��ессе - проф��ссион����л��н��й се��вис"
+                  alt="Р��монт стира��ьных машин Ardo в О��ессе - проф��ссион����л��н��й се��вис"
                   src="/brands/image%203823123-200h.webp"
                   loading="eager"
                   className="frame1196-image38"
@@ -1840,7 +1811,7 @@ const Frame1196 = (props) => {
               </div>
               <div className="item">
                 <img
-                  alt="����емонт стиральных машин Beko в Од��сс���� - пр����фессиональ����й ��ерви��"
+                  alt="����емонт стиральных машин Beko в Од��сс���� - пр������фессиональ����й ��ерви��"
                   src="/brands/image%203823127-200h.webp"
                   loading="eager"
                   className="frame1196-image41"
@@ -1955,7 +1926,7 @@ to {transform: translateX(-2620px);}}
                 <h3 className="frame1196-text216">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: 'Т��перь продать сти��аль��ую машину в Одессе - <span style="color: #FFD84D; font-weight: 700;">это не сло��но</span><span style="color: #FFD84D;">!</span>',
+                      __html: 'Т��перь продать сти��аль��ую машину в Одессе - <span style="color: #FFD84D; font-weight: 700;">это не сло���но</span><span style="color: #FFD84D;">!</span>',
                     }}
                   ></span>
                 </h3>
@@ -3372,7 +3343,7 @@ to {transform: translateX(-2620px);}}
                 <p className="frame1196-text242">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: 'Н�� в��е виды работ даем гарантию 6 месяцев, на ����ам��не���ные ��а���част�� - 1 год. ���ара��т��йный та��он выдается сразу после за��ершения ремонта',
+                      __html: 'Н�� в��е виды работ даем гарантию 6 месяцев, на ����ам��н�����ные ��а���част�� - 1 год. ���ара��т��йный та��он выдается сразу после за��ершения ремонта',
                     }}
                   ></span>
                 </p>
@@ -3644,7 +3615,7 @@ to {transform: translateX(-2620px);}}
           <p className="frame1196-text252 textITOGI">
             <span
               dangerouslySetInnerHTML={{
-                __html: 'Под брендом "Ваше Название"&nbsp;работа��т команда масте��ов, каждый из которых занимается ремонтом сти��альных машин боле�� семи лет. Мы обучались у лучших, прошли серт��фикацию, п��сещали техкурсы и накопили опыт работы с ��ехник��й лю��ых поколений. Сегодня мы предлагаем ремонт стиральных машин в Одессе с га��антией, использованием оригинальных з��пчасте�� и вниманием к каждой д��тали. В нашем распо��яжен��и — профессионально оснащённая мастерская, скл��д комплектующих и выездной сервис. М�� нахо��им даже редкие детали и точно знаем, как продлить жи��нь вашей технике.',
+                __html: 'Под брендом "Ваше Название"&nbsp;работа��т команда масте��ов, каждый из которых занимается ремонтом сти��альных машин боле�� семи лет. Мы обучались у лучших, прошли серт��фикацию, п��сещали техкурсы и накопили опыт работы с ��ехник��й лю��ых поколений. Сегодн�� мы предлагаем ремонт стиральных машин в Одессе с га��антией, использованием оригинальных з��пчасте�� и вниманием к каждой д��тали. В нашем распо��яжен��и — профессионально оснащённая мастерская, скл��д комплектующих и выездной сервис. М�� нахо��им даже редкие детали и точно знаем, как продлить жи��нь вашей технике.',
               }}
             ></span>
           </p>
@@ -3712,7 +3683,7 @@ to {transform: translateX(-2620px);}}
           <p className="frame1196-text260 textITOGI">
             <span
               dangerouslySetInnerHTML={{
-                __html: 'Ремонт с��иральных машин в Одессе необходим как новым, так и давно ис��ользованным моделям. Все узлы техники имеют ограниченный ресурс, и при активной эксплуатации однажды выходят из строя. Мы собрали самые частые причины, по которым клиенты обращаются в наш сервис:',
+                __html: 'Ремонт с��иральных машин в Одессе необходим как новым, так и давно ис��ользованным моделям. Все узлы техники имеют ограниченный ресурс, и при активной эксплуатации однажды выходят из строя. Мы собрали самые частые причины, по которым клиенты обращаются в наш серви��:',
               }}
             ></span>
           </p>
@@ -3805,7 +3776,7 @@ to {transform: translateX(-2620px);}}
           <p className="frame1196-text271 textITOGI">
             <span
               dangerouslySetInnerHTML={{
-                __html: 'Сервисный центр "Ваше назв��ние"&nbsp;— это современная профессиональная мастерская в Одессе, гд�� выполняются все виды ремонта: от быстрой замены де���алей до полн��го восстановления после серьёзных поломок. ��ы берёмся за любую тех��ику: от массовых моделей до премиум-с��гмента.В����полняем замену амортизато��ов, подшипников, сл��вных насосов, управляющих модулей, датчиков, ТЭ��о��. Также восстанавливаем герметичность, меняем люки, устраняем вибрации и посторонние шумы. Проводим профилактику и г��убокую чистку бараб��на и бака.Каждый ремонт начинается с диагностики — мастер объясняет, в чём проблема, и предлагает решение. Только после согласования с клиентом мы приступаем к рабо��е. Мы ценим доверие и работаем аккуратно — без спешки и халтуры.',
+                __html: 'Сервисный центр "Ваше назв��ние"&nbsp;— это современная профессиональная мастерская в Одессе, гд�� выполняются все виды ремонта: от быстрой замены де���алей до полн��го восстановления после серьёзных поломок. ��ы берёмся за любую тех��ику: от массовых моделей до премиум-с��гмента.В����полняем замену амортизато��ов, подшипников, сл��вных насосов, управляющих модулей, датчиков, ТЭ��о��. Также восстанавливаем герметичность, меняем люки, устраняем вибрации и посторонние шумы. Проводим профилактику и г��убокую чистку бараб��на и бака.Каждый ремонт начинается с диагностики — мастер объясняет, в чём проблема, и предлагает решение. Только после с��гласования с клиентом мы приступаем к рабо��е. Мы ценим доверие и работаем аккуратно — без спешки и халтуры.',
               }}
             ></span>
           </p>
@@ -4291,7 +4262,7 @@ to {transform: translateX(-2620px);}}
         <button type="button" className="frame1196-button4 button" onClick={openReviewModal}>
           <span
             dangerouslySetInnerHTML={{
-              __html: 'Добавить отзыв',
+              __html: 'Д��бавить отзыв',
             }}
           ></span>
         </button>
@@ -8794,7 +8765,7 @@ to {transform: translateX(-2620px);}}
             }
           }
 
-          /* Отдел��н��й брейкпоинт для ��едера */
+          /* Отдел��н���й брейкпоинт для ��едера */
           @media (max-width: 1525px) {
             .frame1196-container103 {
               gap: var(--dl-layout-space-halfunit);
@@ -11790,7 +11761,7 @@ to {transform: translateX(-2620px);}}
             transition: transform 0.4s linear !important;
           }
 
-          /* Hover ��ффекты для стрел��к в кар��очках проблем - только SVG path горит при наведении на карточку */
+          /* Hover ��ффекты для ст��ел��к в кар��очках проблем - только SVG path горит при наведении на карточку */
           .frame1196-arrow10 svg path,
           .frame1196-arrow11 svg path,
           .frame1196-arrow12 svg path,

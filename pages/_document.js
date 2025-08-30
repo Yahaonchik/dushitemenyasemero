@@ -4,6 +4,7 @@ class CustomDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="preload" as="image" href="/to%20the%20backgrouund-1500w.png" />
           <meta charSet="utf-8"></meta>
           <meta property="twitter:card" content="summary_large_image"></meta>
           <style
