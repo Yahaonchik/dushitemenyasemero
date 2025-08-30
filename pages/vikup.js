@@ -7,6 +7,7 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import SellModal from '../components/SellModal'
 import { getSEOData } from '../utils/seoConfig'
 import { getServiceData, getLocalBusinessData, getBreadcrumbData } from '../utils/structuredData'
+import Image from 'next/image'
 
 const Vikup = (props) => {
   const [isSellModalOpen, setIsSellModalOpen] = useState(false)
@@ -47,7 +48,8 @@ const Vikup = (props) => {
             <div className="page1-container12">
               <div className="page1-container13">
                 <h1 className="page1-text10">
-                  <span>Выкуп б/у машин</span>
+                  <span className="page1-text10-blue">Выкуп </span>
+                  <span className="page1-text10-black">б/у машин</span>
                   <br></br>
                 </h1>
                 <p className="page1-text13">
@@ -112,16 +114,20 @@ const Vikup = (props) => {
                   </span>
                 </p>
               </div>
-              <img
-                alt="мастер п�� ремонту стиральных машин жмет руку покупателю"
-                src="/vikupsochi-1500w.webp"
-                loading="eager"
-                className="page1-image2"
-              />
+              <div className="page1-hero-image">
+                <Image
+                  alt="мастер п�� ремонту стиральных машин жмет руку покупателю"
+                  src="/vikupsochi-1500w.webp"
+                  layout="fill"
+                  objectFit="cover"
+                  className="page1-image2"
+                  priority
+                />
+              </div>
             </div>
             <div className="page1-container14">
               <h2 className="page1-text26">
-                <span>Почему луч��е не выбрасывать</span>
+                <span>Почему луч��е не выбрасыват��</span>
                 <br></br>
               </h2>
             </div>
@@ -242,7 +248,7 @@ const Vikup = (props) => {
                     ></path>
                   </svg>
                   <p className="page1-text36">
-                    Вы получаете реальную выгоду — деньги сразу на месте
+                    Вы получаете реальную в��году — деньги с��азу на месте
                   </p>
                 </div>
               </div>
@@ -747,12 +753,14 @@ const Vikup = (props) => {
           .page1-text10 {
             fill: #4ec8ed;
             color: #4ec8ed;
-            font-size: 25px;
+            font-size: 35px;
             align-self: center;
             font-style: normal;
             font-family: 'Noto Serif SC';
             font-weight: 600;
           }
+          .page1-text10-black { color: #000000; }
+          .page1-text10-blue { color: #87ceeb; font-weight: 700; }
           .page1-text13 {
             font-size: 17.5px;
             max-width: 700px;
@@ -783,9 +791,12 @@ const Vikup = (props) => {
           .page1-text24 {
             color: #373737;
           }
-          .page1-image2 {
+          .page1-hero-image {
+            position: relative;
             width: 502px;
             height: 325px;
+          }
+          .page1-image2 {
             object-fit: cover;
           }
           .page1-container14 {
@@ -898,7 +909,7 @@ const Vikup = (props) => {
             max-width: 280px;
             align-items: center;
             padding-top: var(--dl-layout-space-unit);
-            padding-left: var(--dl-layout-space-unit);
+            padding-left: calc(var(--dl-layout-space-unit) + 15px);
             padding-right: var(--dl-layout-space-unit);
             padding-bottom: var(--dl-layout-space-unit);
             justify-content: center;
@@ -954,7 +965,7 @@ const Vikup = (props) => {
             display: flex;
             max-width: 280px;
             align-items: center;
-            padding-top: var(--dl-layout-space-unit);
+            padding-top: 0px;
             padding-left: var(--dl-layout-space-unit);
             padding-right: var(--dl-layout-space-unit);
             padding-bottom: var(--dl-layout-space-unit);
@@ -1000,8 +1011,8 @@ const Vikup = (props) => {
             font-size: 14.5px;
             max-width: 175px;
             font-style: italic;
-            max-height: 55px;
-            min-height: 55px;
+            max-height: none;
+            min-height: auto;
             font-family: 'Nunito';
             font-weight: 300;
           }
@@ -1427,6 +1438,8 @@ const Vikup = (props) => {
               font-style: normal;
               font-family: Nunito;
               font-weight: 300;
+              min-height: auto;
+              max-height: none;
             }
             .page1-container20 {
               padding-top: 0px;
@@ -1465,7 +1478,7 @@ const Vikup = (props) => {
               padding-left: var(--dl-layout-space-oneandhalfunits);
               padding-right: var(--dl-layout-space-oneandhalfunits);
             }
-            .page1-image2 {
+            .page1-hero-image {
               width: 418px;
               height: 323px;
             }
@@ -1553,20 +1566,20 @@ const Vikup = (props) => {
             }
             .page1-container13 {
               width: 100%;
-              margin-top: 35px;
+              margin-top: 50px;
             }
             .page1-text10 {
-              font-size: 21px;
+              font-size: 24px;
             }
             .page1-text13 {
               width: 100%;
               height: 100%;
-              font-size: 15px;
-              padding-left: var(--dl-layout-space-unit);
+              font-size: 13.5px;
+              padding-left: calc(var(--dl-layout-space-unit) + 6px);
               margin-bottom: var(--dl-layout-space-twounits);
-              padding-right: var(--dl-layout-space-unit);
+              padding-right: calc(var(--dl-layout-space-unit) + 6px);
             }
-            .page1-image2 {
+            .page1-hero-image {
               width: 100%;
               height: 240px;
             }
@@ -1594,15 +1607,17 @@ const Vikup = (props) => {
               gap: calc(var(--dl-layout-space-twounits) - 6px);
               padding-left: var(--dl-layout-space-halfunit);
               justify-content: flex-start;
+              margin-bottom: 25px;
             }
             .page1-container17, .page1-container19, .page1-container21 {
               max-width: 140px;
-              min-height: 140px;
+              min-height: auto;
             }
             .page1-container18 {
               gap: calc(var(--dl-layout-space-twounits) - 6px);
               padding-left: var(--dl-layout-space-halfunit);
               justify-content: flex-start;
+              margin-bottom: 25px;
             }
             .page1-container20 {
               gap: calc(var(--dl-layout-space-twounits) - 6px);
@@ -1643,6 +1658,8 @@ const Vikup = (props) => {
             .page1-text32 {
               max-width: 140px;
               line-height: 1.2;
+              min-height: auto;
+              max-height: none;
             }
             .page1-text37 {
               width: auto;

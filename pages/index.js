@@ -139,12 +139,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Стиральная машина не сливает воду"
-                  src="/problems 2/11-300h.webp"
-                  loading="eager"
-                  className="frame1196-image15"
-                />
+                <Image alt="Стиральная машина н�� сливает воду" src="/problems 2/11-300h.webp" layout="fill" objectFit="cover" className="frame1196-image15" priority />
               </a>
             </Link>
             <Link href="/negreetvodu">
@@ -165,12 +160,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Стираль������я машина не нагревает воду"
-                  src="/problems 2/21-300h.webp"
-                  loading="eager"
-                  className="frame1196-image16"
-                />
+                <Image alt="Стираль������я машина не нагревает воду" src="/problems 2/21-300h.webp" layout="fill" objectFit="cover" className="frame1196-image16" priority />
               </a>
             </Link>
             <Link href="/protekaet">
@@ -189,12 +179,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Стиральная ��ашина протекает"
-                  src="/problems 2/31-300h.webp"
-                  loading="eager"
-                  className="frame1196-image17"
-                />
+                <Image alt="Стиральная ��ашина протекает" src="/problems 2/31-300h.webp" layout="fill" objectFit="cover" className="frame1196-image17" priority />
               </a>
             </Link>
             <Link href="/silnoshumit">
@@ -215,12 +200,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <img
-                  alt="Стиральная машина шумит при ��тжиме"
-                  src="/problems/4-300h.webp"
-                  loading="eager"
-                  className="frame1196-image18"
-                />
+                <Image alt="Стиральная машина шумит при ��тжиме" src="/problems/4-300h.webp" layout="fill" objectFit="cover" className="frame1196-image18" priority />
               </a>
             </Link>
             <Link href="/nevkluchaetsa">
@@ -241,7 +221,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <Image alt="Стиральная машина не ��ключается" src="/problems 2/51-300h.webp" width={149} height={215} className="frame1196-image19" loading="eager" />
+                <Image alt="Стиральная машина н�� ��ключается" src="/problems 2/51-300h.webp" layout="fill" objectFit="cover" className="frame1196-image19" priority />
               </a>
             </Link>
             <Link href="/zavisaetnaprogramme">
@@ -262,7 +242,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <Image alt="Стиральная машина зависает на программе" src="/problems 2/61-300h.webp" width={149} height={215} className="frame1196-image20" loading="eager" />
+                <Image alt="Стиральная машина зависает на программе" src="/problems 2/61-300h.webp" layout="fill" objectFit="cover" className="frame1196-image20" priority />
               </a>
             </Link>
             <Link href="/neotjimaet">
@@ -283,7 +263,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <Image alt="Стиральная м��шина не ����тжима��т" src="/problems 2/71-300h.webp" width={149} height={215} className="frame1196-image21" loading="eager" />
+                <Image alt="Стиральная м��шина не ����тжима��т" src="/problems 2/71-300h.webp" layout="fill" objectFit="cover" className="frame1196-image21" priority />
               </a>
             </Link>
             <Link href="/nenabiraetvodu">
@@ -304,7 +284,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <Image alt="Стиральная машина не набирает воду" src="/problems/8-300h.webp" width={149} height={215} className="frame1196-image22" loading="eager" />
+                <Image alt="Стиральная машина не набирает воду" src="/problems/8-300h.webp" layout="fill" objectFit="cover" className="frame1196-image22" priority />
               </a>
             </Link>
             <Link href="/neotkrivaetsadverca">
@@ -325,7 +305,7 @@ const Frame1196 = (props) => {
                     ></path>
                   </svg>
                 </div>
-                <Image alt="Не отк����ывается д��ерца стиральной машины" src="/problems 2/91-300h.webp" width={149} height={215} className="frame1196-image23" loading="eager" />
+                <Image alt="Не отк����ывается д��ерца стиральной машины" src="/problems 2/91-300h.webp" layout="fill" objectFit="cover" className="frame1196-image23" priority />
               </a>
             </Link>
             <a href="/nekrutitbaraban" className="frame1196-container122">
@@ -345,7 +325,7 @@ const Frame1196 = (props) => {
                   ></path>
                 </svg>
               </div>
-              <Image alt="С����иральная машина не крут��т бараба��" src="/problems/10-300h.webp" width={149} height={215} className="frame1196-image24" loading="eager" />
+              <Image alt="С����иральная машина не крут��т бараба��" src="/problems/10-300h.webp" layout="fill" objectFit="cover" className="frame1196-image24" priority />
             </a>
           </article>
         </section>
@@ -3280,7 +3260,7 @@ to {transform: translateX(-2620px);}}
               >
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: 'Сколько времени занимае�� ремон��?',
+                    __html: 'Сколько вр��мени занимае�� ремон��?',
                   }}
                 ></span>
               </h3>
@@ -3343,7 +3323,7 @@ to {transform: translateX(-2620px);}}
                 <p className="frame1196-text242">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: 'Н�� в��е виды работ даем гарантию 6 месяцев, на ����ам��н�����ные ��а���част�� - 1 год. ���ара��т��йный та��он выдается сразу после за��ершения ремонта',
+                      __html: 'Н�� в��е виды работ даем га��антию 6 месяцев, на ����ам��н�����ные ��а���част�� - 1 год. ���ара��т��йный та��он выдается сразу после за��ершения ремонта',
                     }}
                   ></span>
                 </p>
@@ -3608,14 +3588,14 @@ to {transform: translateX(-2620px);}}
           <p className="frame1196-text251 textITOGI">
             <span
               dangerouslySetInnerHTML={{
-                __html: 'Стиральная машина — это те��ника, ко��орая должна работать исправно: отжимать, стирать и радовать стабильнос��ью. Н�� на практике даже самая над��жная техника со времен��м требует внимания. Механическ��е детали изнаш��ваются, электроника даёт с��ои, а ��ыто��ая нагрузка делает своё дело. Вот почему ремонт стиральных машин в Одессе — э��о не просто разовая ус��уга, а реальна���� необходимость для большинства владельцев. Важно доверить ремонт проверенным специалистам, а не случайному маст��ру.',
+                __html: 'Ст��ральная машина — это те��ника, ко��орая должна работать исправно: отжимать, стирать и радовать стабильнос��ью. Н�� на практике даже самая над��жная техника со времен��м требует внимания. Механическ��е детали изнаш��ваются, электроника даёт с��ои, а ��ыто��ая нагрузка делает своё дело. Вот почему ремонт стиральных машин в Одессе — э��о не просто разовая ус��уга, а реальна���� необходимость для большинства владельцев. Важно доверить ремонт проверенным специалистам, а не случайному маст��ру.',
               }}
             ></span>
           </p>
           <p className="frame1196-text252 textITOGI">
             <span
               dangerouslySetInnerHTML={{
-                __html: 'Под брендом "Ваше Название"&nbsp;работа��т команда масте��ов, каждый из которых занимается ремонтом сти��альных машин боле�� семи лет. Мы обучались у лучших, прошли серт��фикацию, п��сещали техкурсы и накопили опыт работы с ��ехник��й лю��ых поколений. Сегодн�� мы предлагаем ремонт стиральных машин в Одессе с га��антией, использованием оригинальных з��пчасте�� и вниманием к каждой д��тали. В нашем распо��яжен��и — профессионально оснащённая мастерская, скл��д комплектующих и выездной сервис. М�� нахо��им даже редкие детали и точно знаем, как продлить жи��нь вашей технике.',
+                __html: 'Под брендом "Ваше Название"&nbsp;работа��т команда масте��ов, каждый из которых занимается ремонтом сти��альных машин боле�� семи лет. Мы обучались у лучших, прошли серт��фикацию, п��сещали техкурсы и накопили опыт работы с ��ехни����й лю��ых поколений. Сегодн�� мы предлагаем ремонт стиральных машин в Одессе с га��антией, использованием оригинальных з��пчасте�� и вниманием к каждой д��тали. В нашем распо��яжен��и — профессионально оснащённая мастерская, скл��д комплектующих и выездной сервис. М�� нахо��им даже редкие детали и точно знаем, как продлить жи��нь вашей технике.',
               }}
             ></span>
           </p>
@@ -3990,7 +3970,7 @@ to {transform: translateX(-2620px);}}
             <p className="frame1196-text278">
               &quot;Я считаю это победа над стиральной м��шино���, которой 12
               лет))  О��ень круто!! ����лаг������арю!! Она пала в руки мастера и
-              отдала��ь ем�� полностью, а н�� ст��ла бры��ать����. ��е зна��, что он т��м
+              отдала��ь ем�� полностью, а н�� ст��ла бры���ать����. ��е зна��, что он т��м
               с ней делал, но сейчас он�� к��к шелковая стира��т мо�� ситцев���е
               кружевно����� бел��е&lt;3&quot;
             </p>
@@ -4346,7 +4326,7 @@ to {transform: translateX(-2620px);}}
             text-decoration: none;
           }
 
-          /* Черный цвет для заголовка когда нет фоновой картинки (на мобильных экранах) */
+          /* ��ерный цвет для заголовка когда нет фоновой картинки (на мобильных экранах) */
           @media (max-width: 767px) {
             .frame1196-text108 {
               color: #000000;
@@ -11668,7 +11648,7 @@ to {transform: translateX(-2620px);}}
               text-decoration: none;
             }
 
-            /* Hover эффекты для навигации в футере на мобильных */
+            /* Hover эффекты для навигации в фут��ре на мобильных */
             .frame1196-text288:hover,
             .frame1196-text289:hover,
             .frame1196-text290:hover {
@@ -11775,7 +11755,7 @@ to {transform: translateX(-2620px);}}
             transition: fill 0.3s ease;
           }
 
-          /* При наведении на всю карточку - стрелка становится голубой */
+          /* При наведении н�� всю карточку - стрелка становится голубой */
           .frame1196-container113:hover .frame1196-arrow10 svg path,
           .frame1196-container114:hover .frame1196-arrow11 svg path,
           .frame1196-container115:hover .frame1196-arrow12 svg path,
@@ -11832,7 +11812,7 @@ to {transform: translateX(-2620px);}}
             transform: translateY(0) !important;
           }
 
-          /* Глоба��ьные hover эффекты для Blue1 и Blue2 компонентов */
+          /* Глоба��ьные hover эффекты для Blue1 и Blue2 ко��понентов */
           :global(.blue1-container4),
           :global(.blue2-container4) {
             cursor: pointer !important;
